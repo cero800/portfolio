@@ -3,9 +3,10 @@
 [![Astro](https://img.shields.io/badge/Astro-B354FF?style=for-the-badge&logo=astro&logoColor=white)](https://astro.build/)
 [![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org/)
 [![Tailwind CSS v3](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
-[![GitHub Pages](https://img.shields.io/badge/GitHub_Pages-222222?style=for-the-badge&logo=github&logoColor=white)](https://pages.github.com/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://vercel.com/)
 
-> **¡Hola! Soy cero800.** Este es el repositorio de mi portafolio web personal, construido para mostrar mis habilidades y proyectos de desarrollo frontend. El sitio está diseñado para ser ultrarrápido y SEO-friendly, aprovechando la arquitectura de "islas" de Astro.
+> **¡Hola! Soy CERO (cero800).** Este es el repositorio de mi portafolio web personal. Es una _single page_ con estética **TUI de terminal**, pensada para mostrar mi trabajo como desarrollador **backend** y mis proyectos de web. La versión actual es el **v1**: navegación a secciones, _file explorer_ interactivo con mis proyectos reales, formulario de contacto funcional e internacionalización **ES/EN** (`/: español`, `/en: english`).
 
 ### 🖼️ Previsualización del Sitio
 
@@ -15,43 +16,41 @@
 
 Puedes ver la versión desplegada en:
 
-https://mini-portfolio-sigma-33.vercel.app/
+- Español: https://mini-portfolio-sigma-33.vercel.app/
+- English: https://mini-portfolio-sigma-33.vercel.app/en
 
 ---
 
 ## 🚀 Tecnologías Clave
 
-Este proyecto combina lo mejor del desarrollo web moderno para un rendimiento excepcional:
-
-- **Astro:** Como _framework_ principal, para el _Server-Side Rendering_ (SSR) y la generación de sitios estáticos, asegurando cero JavaScript por defecto y una velocidad de carga máxima.
-- **React:** Se utiliza en componentes específicos ("Astro Islands") donde se requiere interactividad, estado o lógica compleja (ej. el formulario de contacto).
-- **Tailwind CSS v3:** Para un diseño rápido, _utility-first_ y completamente _responsive_.
+- **Astro:** Framework principal, con `output: 'server'` (SSR) y `@astrojs/vercel`. Genera HTML por defecto y solo envía JavaScript donde se necesita.
+- **React:** Se usa como isla (`client:idle`) en el _file explorer_ de proyectos, donde se requiere estado e interactividad.
+- **Tailwind CSS v3:** Diseño _utility-first_, completamente _responsive_.
+- **TypeScript:** Tipado en todo el proyecto, con `astro check` y ESLint en la verificación.
+- **Resend + Zod:** API endpoint para el formulario de contacto, con validación, _honeypot_ y rate-limit (3 envíos/hora por IP).
 
 ---
 
 ## ⚙️ Configuración y Desarrollo Local
 
-Sigue estos pasos para obtener una copia del proyecto y ejecutarlo en tu máquina local.
-
 ### Prerrequisitos
 
-Asegúrate de tener instalado:
-
 - [Node.js](https://nodejs.org/en/) (versión 18+)
-- npm (viene con Node.js) o yarn / pnpm.
+- **pnpm** (está configurado como gestor del proyecto).
 
 ### Instalación
 
 1.  **Clonar el Repositorio:**
 
     ```bash
-    git clone [https://github.com/cero800/portfolio.git](https://github.com/cero800/portfolio.git)
+    git clone https://github.com/cero800/portfolio.git
     cd portfolio
     ```
 
 2.  **Instalar Dependencias:**
+
     ```bash
-    npm install  # o yarn install / pnpm install
+    pnpm install
     ```
 
 ### Ejecutar en Modo Desarrollo
@@ -59,5 +58,36 @@ Asegúrate de tener instalado:
 Ejecuta el servidor de desarrollo en modo local. Esto abrirá el sitio en `http://localhost:4321`.
 
 ```bash
-npm run dev
+pnpm dev
 ```
+
+### Checklist de Verificación
+
+Antes de subir cambios:
+
+```bash
+pnpm format:check
+pnpm lint
+pnpm exec astro check
+pnpm run build
+```
+
+### Regenerar Assets de Marca
+
+El favicon, el _apple-touch-icon_ y la imagen `og.png` (1200×630) se generan desde `scripts/gen-brand-assets.mjs`:
+
+```bash
+node scripts/gen-brand-assets.mjs
+```
+
+### Variables de Entorno (formulario de contacto)
+
+El formulario de la sección **Contacto** envía los mensajes por correo usando **Resend**. En producción configúralas en Vercel → **Settings → Environment Variables**; en local, copia `.env.template` a `.env`:
+
+| Variable          | Descripción                                                        |
+| ----------------- | ------------------------------------------------------------------ |
+| `RESEND_API_KEY`  | Clave de API de Resend.                                            |
+| `RESEND_FROM`     | Dirección "De:" del correo. Ej.: `CERO <portfolio@tudominio.com>`. |
+| `RESEND_EMAIL_TO` | Tu correo real donde recibir los mensajes.                         |
+
+> **Nota:** Sin un dominio verificado en Resend, el modo `onboarding@resend.dev` solo puede enviar a tu propio email (el de tu cuenta de Resend).
