@@ -93,6 +93,112 @@ h6 {
   border-top: 1px dashed var(--border);
 }
 
+.nav-menu-btn {
+  background: transparent;
+  border: 0;
+  color: var(--textMuted);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  transition: color 0.15s ease;
+}
+
+.nav-menu-btn:hover,
+.nav-menu-btn[aria-expanded='true'] {
+  color: var(--terminalGreen);
+}
+
+.terminal-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  background: var(--cardBg);
+  border-top: 1px dashed var(--border);
+  border-bottom: 1px dashed var(--border);
+  font-family: 'Fira Code', monospace;
+}
+
+.terminal-menu[hidden] {
+  display: none;
+}
+
+.terminal-menu-inner {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 14px 20px 16px;
+}
+
+.terminal-menu-title {
+  color: var(--textMuted);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  opacity: 0.8;
+  margin-bottom: 10px;
+  user-select: none;
+}
+
+.terminal-menu-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 10px;
+  color: var(--textMuted);
+  text-decoration: none;
+  border-radius: 3px;
+  font-size: 0.875rem;
+  transition:
+    background 0.12s ease,
+    color 0.12s ease;
+}
+
+.menu-item:hover {
+  background: var(--terminalGreen);
+  color: var(--cardBg);
+}
+
+.menu-item-dot {
+  color: var(--terminalGreen);
+  opacity: 0;
+}
+
+.menu-item.active .menu-item-dot {
+  opacity: 1;
+  animation: blink 1s step-end infinite;
+}
+
+.menu-sep {
+  border: 0;
+  border-top: 1px dashed var(--border);
+  margin: 12px 0;
+  opacity: 0.5;
+}
+
+.terminal-menu-lang {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+}
+
+.menu-close {
+  margin-left: auto;
+}
+
+.nav-menu-btn:focus-visible,
+.menu-item:focus-visible,
+.terminal-menu-lang a:focus-visible {
+  outline: 1px dashed var(--border);
+  outline-offset: 2px;
+}
+
 @keyframes blink {
   0%,
   100% {
@@ -142,8 +248,14 @@ h6 {
     animation: none;
   }
 
+  .menu-item.active .menu-item-dot {
+    animation: none;
+  }
+
   .nav-tab,
-  .btn-primary {
+  .btn-primary,
+  .nav-menu-btn,
+  .menu-item {
     transition: none;
   }
 }

@@ -21,6 +21,9 @@ export interface Dict {
     skills: string
     sobreMi: string
     contacto: string
+    menu: string
+    close: string
+    navigation: string
   }
   hero: {
     tagline: string

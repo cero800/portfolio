@@ -18,15 +18,16 @@ const links = [
 ---
 
 <header class="terminal-header fixed top-0 left-0 w-full z-50">
-  <nav class="w-full max-w-6xl mx-auto px-4 py-2.5">
+  <nav class="w-full max-w-7xl mx-auto px-5 py-3">
     <div class="flex items-center gap-1 whitespace-nowrap overflow-x-auto font-mono text-xs sm:text-sm">
       <a href="#inicio" class="nav-tab text-[var(--textPrimary)]">[ CERO ]</a>
+      <span class="flex-1 min-w-0 sm:hidden"></span>
 
       {
         links.map((link) => (
           <>
             <span class="nav-sep hidden sm:inline">─</span>
-            <a href={link.href} data-section={link.id} class="nav-tab">
+            <a href={link.href} data-section={link.id} class="nav-tab hidden sm:inline">
               [
               <>
                 <span>{link.n}:</span>
@@ -41,14 +42,53 @@ const links = [
       <span class="nav-sep flex-1 min-w-0 overflow-hidden select-none mx-1 hidden sm:inline">{'─'.repeat(45)}</span>
 
       <span id="lang-toggle" class="nav-tab hidden sm:inline-block">
-        <a href="/" data-side="es" class={lang === 'es' ? active : inactive}>ES</a>
+        <a href="/" data-side="es" class="lang-link {lang === 'es' ? active : inactive}">ES</a>
         <span class="text-[var(--textMuted)]">|</span>
-        <a href="/en" data-side="en" class={lang === 'en' ? active : inactive}>EN</a>
+        <a href="/en" data-side="en" class="lang-link {lang === 'en' ? active : inactive}">EN</a>
       </span>
 
       <span class="nav-tab cursor-default">[ cero@arch ]</span>
+
+      <button
+        id="nav-menu-toggle"
+        class="nav-menu-btn nav-tab sm:hidden"
+        aria-expanded="false"
+        aria-controls="terminal-menu"
+        data-open-label={dict.nav.menu}
+        data-close-label={dict.nav.close}
+      >
+        [ {dict.nav.menu} ]
+      </button>
     </div>
   </nav>
+
+  <div id="terminal-menu" class="terminal-menu sm:hidden" hidden>
+    <div class="terminal-menu-inner">
+      <p class="terminal-menu-title" aria-hidden="true">[ {dict.nav.navigation} ]</p>
+      <ul class="terminal-menu-list">
+        {
+          links.map((link) => (
+            <li>
+              <a href={link.href} data-section={link.id} class="nav-tab menu-item">
+                <span class="menu-item-dot">▊</span>
+                <span class="text-[var(--textMuted)]">[{link.n}]</span>
+                <span>{link.label}</span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+      <hr class="menu-sep" />
+      <p class="terminal-menu-lang">
+        <span class="text-[var(--textMuted)]">[</span>
+        <a href="/" data-side="es" class="lang-link nav-tab {lang === 'es' ? active : inactive}">ES</a>
+        <span class="text-[var(--textMuted)]">|</span>
+        <a href="/en" data-side="en" class="lang-link nav-tab {lang === 'en' ? active : inactive}">EN</a>
+        <span class="text-[var(--textMuted)]">]</span>
+        <button id="menu-close" class="nav-menu-btn menu-close">{dict.nav.close}</button>
+      </p>
+    </div>
+  </div>
 </header>
 
 <script>
@@ -75,10 +115,57 @@ const links = [
 
   sections.forEach((section) => section && observer.observe(section))
 
-  const langToggle = Array.from(document.querySelectorAll<HTMLAnchorElement>('#lang-toggle a[data-side]'))
-  langToggle.forEach((link) => {
+  const langLinks = Array.from(document.querySelectorAll<HTMLAnchorElement>('.lang-link[data-side]'))
+  langLinks.forEach((link) => {
     link.addEventListener('click', () => {
       link.href = (link.dataset.side === 'en' ? '/en' : '/') + window.location.hash
     })
   })
+
+  const menuToggle = document.getElementById('nav-menu-toggle') as HTMLButtonElement | null
+  const terminalMenu = document.getElementById('terminal-menu') as HTMLElement | null
+  const menuClose = document.getElementById('menu-close') as HTMLButtonElement | null
+
+  if (menuToggle && terminalMenu) {
+    const openLabel = `[ ${menuToggle.dataset.openLabel} ]`
+    const closeLabel = `[ ${menuToggle.dataset.closeLabel} ]`
+
+    const close = () => {
+      terminalMenu.hidden = true
+      menuToggle.setAttribute('aria-expanded', 'false')
+      menuToggle.textContent = openLabel
+    }
+
+    const open = () => {
+      terminalMenu.hidden = false
+      menuToggle.setAttribute('aria-expanded', 'true')
+      menuToggle.textContent = closeLabel
+    }
+
+    menuToggle.addEventListener('click', () => (terminalMenu.hidden ? open() : close()))
+
+    if (menuClose) {
+      menuClose.addEventListener('click', close)
+    }
+
+    terminalMenu.addEventListener('click', (e) => {
+      if ((e.target as HTMLElement).closest('a')) close()
+    })
+
+    document.addEventListener('click', (e) => {
+      if (terminalMenu.hidden) return
+      if (terminalMenu.contains(e.target as Node)) return
+      if (menuToggle.contains(e.target as Node)) return
+      close()
+    })
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !terminalMenu.hidden) close()
+    })
+
+    window.addEventListener('resize', () => {
+      if (terminalMenu.hidden) return
+      if (window.innerWidth >= 640) close()
+    })
+  }
 </script>

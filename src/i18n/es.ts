@@ -11,6 +11,9 @@ export const es: Dict = {
     skills: 'skills',
     sobreMi: 'sobre_mi',
     contacto: 'contacto',
+    menu: 'menu',
+    close: 'cerrar',
+    navigation: 'navegación',
   },
   hero: {
     tagline: 'Desarrollador backend experimentado en crear arquitectura sólida y experiencias web ideales.',

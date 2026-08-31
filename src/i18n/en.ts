@@ -11,6 +11,9 @@ export const en: Dict = {
     skills: 'skills',
     sobreMi: 'about_me',
     contacto: 'contact',
+    menu: 'menu',
+    close: 'close',
+    navigation: 'navigation',
   },
   hero: {
     tagline: 'Experienced backend developer crafting solid architecture and ideal web experiences.',
