@@ -5,7 +5,7 @@
 [![Tailwind CSS v3](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 [![GitHub Pages](https://img.shields.io/badge/GitHub_Pages-222222?style=for-the-badge&logo=github&logoColor=white)](https://pages.github.com/)
 
-> **¡Hola! Soy Theyobii.** Este es el repositorio de mi portafolio web personal, construido para mostrar mis habilidades y proyectos de desarrollo frontend. El sitio está diseñado para ser ultrarrápido y SEO-friendly, aprovechando la arquitectura de "islas" de Astro.
+> **¡Hola! Soy cero800.** Este es el repositorio de mi portafolio web personal, construido para mostrar mis habilidades y proyectos de desarrollo frontend. El sitio está diseñado para ser ultrarrápido y SEO-friendly, aprovechando la arquitectura de "islas" de Astro.
 
 ### 🖼️ Previsualización del Sitio
 
@@ -45,7 +45,7 @@ Asegúrate de tener instalado:
 1.  **Clonar el Repositorio:**
 
     ```bash
-    git clone [https://github.com/Theyobii/portfolio.git](https://github.com/Theyobii/portfolio.git)
+    git clone [https://github.com/cero800/portfolio.git](https://github.com/cero800/portfolio.git)
     cd portfolio
     ```
 

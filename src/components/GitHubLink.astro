@@ -1,0 +1,16 @@
+---
+import { siGithub } from 'simple-icons'
+import Icon from './Icon.astro'
+
+const GITHUB_URL = 'https://github.com/cero800'
+---
+
+<a
+  href={GITHUB_URL}
+  target="_blank"
+  rel="noopener noreferrer"
+  class="mt-4 inline-flex items-center gap-2 text-sm text-[var(--textMuted)] transition-colors hover:text-[var(--terminalGreen)]"
+>
+  <Icon icon={siGithub} />
+  <span>github.com/cero800</span>
+</a>

@@ -1,0 +1,20 @@
+---
+const { title = '', command = '' } = Astro.props
+const titlePadded = title.padEnd(9, ' ')
+---
+
+<div
+  class="w-full max-w-4xl mx-auto rounded-none border border-dashed border-[var(--terminalGreen)] px-4 py-2.5 mb-12 font-mono flex items-center justify-between gap-3 bg-[var(--cardBg)]"
+>
+  <span class="font-bold uppercase tracking-wider text-[var(--textPrimary)] text-sm sm:text-lg whitespace-nowrap">
+    <span class="text-[var(--textMuted)]">[</span>
+    <span class="text-[var(--terminalGreen)] whitespace-pre">{titlePadded}</span>
+    <span class="text-[var(--textMuted)]">]</span>
+  </span>
+  <span aria-hidden="true" class="hidden sm:block flex-1 border-t border-dashed border-[var(--textMuted)] opacity-60"
+  ></span>
+  <span class="text-[var(--textMuted)] text-xs sm:text-sm whitespace-nowrap overflow-x-auto overflow-y-hidden">
+    <span class="text-[var(--terminalGreen)]">$</span>
+    {command}
+  </span>
+</div>

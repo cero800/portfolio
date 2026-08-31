@@ -1,5 +1,7 @@
 interface ImportMetaEnv {
-  readonly FOOTBALL_API_KEY?: string
+  readonly RESEND_API_KEY?: string
+  readonly RESEND_FROM?: string
+  readonly RESEND_EMAIL_TO?: string
 }
 
 interface ImportMeta {

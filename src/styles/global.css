@@ -1,3 +1,135 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --bg: #070a08;
+  --cardBg: #0c140d;
+  --terminalGreen: #45f585;
+  --border: #45f585;
+  --textPrimary: #45f585;
+  --textMuted: #34d36d;
+  --placeholder: #1e5631;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Fira Code', monospace;
+  background-color: var(--bg);
+  color: var(--textPrimary);
+  min-height: 100vh;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-snap-type: y proximity;
+  scroll-padding-top: 72px;
+}
+
+.section {
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  scroll-snap-align: start;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Orbitron Variable', 'Fira Code', sans-serif;
+}
+
+/* Efecto terminal encendida */
+.terminal-header {
+  background: var(--bg);
+}
+
+.nav-tab {
+  color: var(--textMuted);
+  text-decoration: none;
+  padding: 2px 4px;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+.nav-tab:hover {
+  color: var(--terminalGreen);
+}
+
+.nav-tab.active {
+  color: var(--terminalGreen);
+  text-shadow: 0 0 8px rgba(69, 245, 133, 0.6);
+}
+
+.nav-sep {
+  color: var(--textMuted);
+  opacity: 0.8;
+  user-select: none;
+}
+
+.terminal-cursor {
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.btn-primary {
+  display: inline-block;
+  background: transparent;
+  color: var(--terminalGreen);
+  font-family: 'Fira Code', monospace;
+  font-weight: bold;
+  padding: 10px 20px;
+  border: 1px dashed var(--terminalGreen);
+  border-radius: 0;
+  cursor: pointer;
+  transition:
+    background 0.15s ease,
+    color 0.15s ease;
+}
+
+.btn-primary:hover {
+  background: var(--terminalGreen);
+  color: var(--cardBg);
+}
+
+.status-ok {
+  color: #45f585;
+}
+
+.status-err {
+  color: #ff5f56;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+    scroll-snap-type: none;
+    scroll-padding-top: 0;
+  }
+
+  .terminal-cursor {
+    animation: none;
+  }
+
+  .nav-tab,
+  .btn-primary {
+    transition: none;
+  }
+}

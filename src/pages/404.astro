@@ -1,0 +1,38 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import TerminalTitle from '../components/TerminalTitle.astro'
+import { es } from '../i18n/es'
+import { en } from '../i18n/en'
+
+const isEn = Astro.url.pathname.startsWith('/en')
+const dict = isEn ? en : es
+const lang = isEn ? 'en' : 'es'
+const home = isEn ? '/en' : '/'
+const projects = isEn ? '/en/#mis-proyectos' : '/#mis-proyectos'
+---
+
+<BaseLayout {lang} title="404 · command not found">
+  <section class="section py-16 w-full">
+    <div class="max-w-3xl mx-auto px-4 w-full text-center">
+      <TerminalTitle title="404" command="cat not-found --error" />
+
+      <pre
+        class="font-mono text-[var(--terminalGreen)] text-xs sm:text-base leading-6 whitespace-pre select-none mt-8">{`    ___  ____  ____
+   / _ \\|  _ \\|  _ \\
+  | | | | |_) | |_) |
+  | |_| |  _ <|  __/
+   \\___/|_| \\_\\_|`}</pre>
+
+      <p class="mt-8 font-mono text-sm text-[var(--textMuted)]">
+        <span class="text-[var(--terminalGreen)]">$</span> page not found: uninitialized_path <span
+          class="terminal-cursor">▊</span
+        >
+      </p>
+
+      <div class="mt-10 flex flex-wrap gap-4 justify-center">
+        <a href={home} class="btn-primary">{dict.notFound.backHome}</a>
+        <a href={projects} class="btn-primary">{dict.notFound.viewProjects}</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

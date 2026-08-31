@@ -1,0 +1,292 @@
+---
+import Section from './Section.astro'
+import TerminalLogo from './TerminalLogo.astro'
+import TerminalTitle from './TerminalTitle.astro'
+import FileExplorer from './FileExplorer.tsx'
+import GitHubLink from './GitHubLink.astro'
+import avatarText from '../assets/avatar.txt?raw'
+import type { Dict, Locale } from '../i18n/types'
+
+interface Props {
+  dict: Dict
+  lang: Locale
+}
+const { dict, lang } = Astro.props
+
+const skills = [
+  {
+    cat: 'LANGUAGES',
+    items: [
+      { name: 'Go', level: 'MAIN' },
+      { name: 'JavaScript', level: 'MAIN' },
+      { name: 'TypeScript', level: 'PROFICIENT' },
+      { name: 'Python', level: 'PROFICIENT' },
+    ],
+  },
+  {
+    cat: 'FRONTEND',
+    items: [
+      { name: 'React', level: 'MAIN' },
+      { name: 'Astro', level: 'PROFICIENT' },
+      { name: 'Tailwind CSS', level: 'PROFICIENT' },
+    ],
+  },
+  {
+    cat: 'DATABASES',
+    items: [
+      { name: 'MySQL', level: 'PROFICIENT' },
+      { name: 'PostgreSQL', level: 'PROFICIENT' },
+    ],
+  },
+  {
+    cat: 'TOOLS',
+    items: [
+      { name: 'Git', level: 'ADVANCED' },
+      { name: 'Linux', level: 'PROFICIENT' },
+      { name: 'Nvim', level: 'PROFICIENT' },
+      { name: 'Zsh', level: 'PROFICIENT' },
+    ],
+  },
+]
+
+const maxNameLen = Math.max(...skills.flatMap((c) => c.items.map((i) => i.name.length)))
+
+const tagClass: Record<string, string> = {
+  MAIN: 'text-[var(--terminalGreen)] font-bold',
+  ADVANCED: 'text-[var(--textMuted)]',
+  PROFICIENT: 'text-[var(--placeholder)]',
+}
+
+const skillsHtml = skills
+  .map(
+    (cat, ci) =>
+      (ci > 0 ? '\n' : '') +
+      `<span class="text-[var(--terminalGreen)] font-bold"># ${cat.cat}</span>` +
+      cat.items
+        .map((item, i) => {
+          const connector = i === cat.items.length - 1 ? '└──' : '├──'
+          const dots = '.'.repeat(maxNameLen - item.name.length + 2)
+          return (
+            `\n<span class="text-[var(--textMuted)]">${connector} </span>` +
+            `${item.name}${dots} <span class="${tagClass[item.level]}">[${item.level}]</span>`
+          )
+        })
+        .join(''),
+  )
+  .join('\n')
+---
+
+<div class="w-full">
+  <Section id="inicio" className="text-center">
+    <div class="max-w-3xl mx-auto px-4">
+      <TerminalLogo />
+
+      <p class="text-lg text-[var(--textMuted)] mb-8 max-w-lg mx-auto">{dict.hero.tagline}</p>
+
+      <div class="flex flex-wrap gap-4 justify-center">
+        <a href="#mis-proyectos" class="btn-primary">{dict.hero.verProyectos}</a>
+        <a href="#sobre-mi" class="btn-primary">{dict.hero.sobreMi}</a>
+      </div>
+
+      <GitHubLink />
+    </div>
+  </Section>
+
+  <Section id="mis-proyectos" className="items-start pt-28">
+    <div class="max-w-4xl mx-auto px-4 w-full">
+      <TerminalTitle title={dict.sections.proyectos} command="ls ./projects" />
+
+      <FileExplorer client:idle projects={dict.projects} />
+    </div>
+  </Section>
+
+  <Section id="skills" className="items-start pt-28">
+    <div class="max-w-4xl mx-auto px-4 w-full">
+      <TerminalTitle title={dict.sections.skills} command="cat ./skills.txt" />
+
+      <div class="w-full bg-[#0c140d] border border-[#1e5631] rounded-none font-mono px-4 py-5 sm:px-6 overflow-x-auto">
+        <pre class="text-xs sm:text-sm leading-6 whitespace-pre" set:html={skillsHtml} />
+      </div>
+    </div>
+  </Section>
+
+  <Section id="sobre-mi">
+    <div class="max-w-4xl mx-auto px-4 w-full">
+      <TerminalTitle title={dict.sections.sobreMi} command="neofetch" />
+      <div class="flex flex-col md:flex-row items-start gap-8 md:gap-12">
+        <div class="order-1 md:order-2 w-full md:w-auto shrink-0 flex justify-center">
+          <pre
+            class="font-mono text-[#45f585] text-[11px] sm:text-xs lg:text-sm leading-[1.1] whitespace-pre select-none">{avatarText}</pre>
+        </div>
+
+        <div class="order-2 md:order-1 flex-1 w-full min-w-0 font-mono text-xs sm:text-sm leading-7">
+          <p class="text-[var(--terminalGreen)]">
+            <span class="text-[var(--textPrimary)]">cero</span>@portfolio
+          </p>
+          <p class="text-[var(--terminalGreen)] tracking-tighter mb-4">──────────────</p>
+
+          <dl class="grid grid-cols-[110px_1fr] gap-x-3 gap-y-2">
+            <dt class="text-[var(--terminalGreen)]">OS:</dt>
+            <dd class="text-[var(--textPrimary)]">Arch Linux x86_64 (Web)</dd>
+            <dt class="text-[var(--terminalGreen)]">Host:</dt>
+            <dd class="text-[var(--textPrimary)]">CERO</dd>
+            <dt class="text-[var(--terminalGreen)]">Uptime:</dt>
+            <dd class="text-[var(--textPrimary)]">+2 years building web apps</dd>
+            <dt class="text-[var(--terminalGreen)]">WM:</dt>
+            <dd class="text-[var(--textPrimary)]">Hyprland (Wayland)</dd>
+            <dt class="text-[var(--terminalGreen)]">Editor:</dt>
+            <dd class="text-[var(--textPrimary)]">Zed / Neovim</dd>
+            <dt class="text-[var(--terminalGreen)]">Stack:</dt>
+            <dd class="text-[var(--textPrimary)]">Astro, TypeScript, Go, Node.js, MySQL, React</dd>
+            <dt class="text-[var(--terminalGreen)]">Status:</dt>
+            <dd class="text-[var(--textPrimary)]">Available for projects / Open to work</dd>
+            <dt class="text-[var(--terminalGreen)]">GitHub:</dt>
+            <dd class="text-[var(--textPrimary)]">
+              <a
+                href="https://github.com/cero800"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="hover:text-[var(--terminalGreen)] transition-colors">github.com/cero800</a
+              >
+            </dd>
+            <dt class="text-[var(--terminalGreen)]">Latency:</dt>
+            <dd class="text-[var(--textPrimary)]">12ms (Fast response)</dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </Section>
+
+  <Section id="contacto">
+    <div class="max-w-4xl mx-auto px-4 w-full">
+      <TerminalTitle title={dict.sections.contacto} command="mail --compose" />
+
+      <div class="max-w-lg mx-auto">
+        <div class="bg-[#0c140d] border border-[#1e5631] rounded-none font-mono text-xs sm:text-sm">
+          <div class="px-3 py-1.5 border-b border-[#1e5631] text-[var(--textMuted)] select-none truncate">
+            <span class="text-[var(--terminalGreen)]">┌──</span> [ <span class="text-[var(--terminalGreen)]">$</span> mail
+            --compose ]<span class="hidden sm:inline">───</span>
+          </div>
+
+          <form id="compose-form" data-lang={lang} class="flex flex-col">
+            <input type="text" name="website" autocomplete="off" tabindex="-1" aria-hidden="true" class="sr-only" />
+            <div class="px-3 py-1 space-y-1">
+              <div class="grid grid-cols-[9ch_1fr] items-center gap-x-2">
+                <span class="text-[var(--terminalGreen)] select-none whitespace-pre">TO :</span>
+                <span class="text-[var(--textMuted)] truncate">cero@portfolio.dev</span>
+              </div>
+              <div class="grid grid-cols-[9ch_1fr] items-center gap-x-2">
+                <label for="from" class="text-[var(--terminalGreen)] select-none whitespace-pre">FROM :</label>
+                <span class="flex items-center gap-1">
+                  <span class="text-[var(--placeholder)] select-none">[</span>
+                  <input
+                    id="from"
+                    name="nombre"
+                    type="text"
+                    placeholder={dict.contact.placeholderName}
+                    required
+                    class="w-full min-w-0 bg-transparent rounded-none outline-none border-b border-transparent focus:border-[#45f585] font-mono text-[var(--textPrimary)] placeholder:text-[var(--placeholder)] px-0.5 py-1"
+                  />
+                  <span class="text-[var(--placeholder)] select-none">]</span>
+                </span>
+              </div>
+              <div class="grid grid-cols-[9ch_1fr] items-center gap-x-2">
+                <label for="email" class="text-[var(--terminalGreen)] select-none whitespace-pre">EMAIL :</label>
+                <span class="flex items-center gap-1">
+                  <span class="text-[var(--placeholder)] select-none">[</span>
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    placeholder={dict.contact.placeholderEmail}
+                    required
+                    class="w-full min-w-0 bg-transparent rounded-none outline-none border-b border-transparent focus:border-[#45f585] font-mono text-[var(--textPrimary)] placeholder:text-[var(--placeholder)] px-0.5 py-1"
+                  />
+                  <span class="text-[var(--placeholder)] select-none">]</span>
+                </span>
+              </div>
+            </div>
+
+            <div class="border-t border-[#1e5631] px-3 py-2 flex flex-col gap-2">
+              <label for="message" class="text-[var(--terminalGreen)] select-none">MESSAGE :</label>
+              <textarea
+                id="message"
+                name="mensaje"
+                rows="5"
+                placeholder={dict.contact.placeholderMessage}
+                required
+                class="w-full min-h-[7rem] resize-none bg-transparent rounded-none outline-none border border-transparent focus:border-[#45f585] font-mono px-1 py-1 text-[var(--textPrimary)] placeholder:text-[var(--placeholder)]"
+              ></textarea>
+            </div>
+
+            <div class="flex items-center justify-between gap-3 px-3 py-1.5 border-t border-[#1e5631]">
+              <button
+                type="submit"
+                class="rounded-none border-none cursor-pointer font-mono font-bold text-[var(--terminalGreen)] bg-transparent px-2 py-0.5 transition-colors hover:bg-[#45f585] hover:text-[#0c140d]"
+              >
+                [ ➔ TRANSMIT ]
+              </button>
+              <span class="text-[var(--textMuted)] select-none truncate">
+                Status: <span id="status" class="text-[var(--terminalGreen)]">READY_TO_SEND</span>
+              </span>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </Section>
+</div>
+
+<script>
+  const form = document.getElementById('compose-form') as HTMLFormElement | null
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault()
+    const status = document.getElementById('status')
+    const button = form?.querySelector('button[type="submit"]') as HTMLButtonElement | null
+    const setStatus = (text: string, tone: 'ok' | 'err') => {
+      if (status) {
+        status.textContent = text
+        status.className = tone === 'ok' ? 'status-ok' : 'status-err'
+      }
+    }
+    if (button) {
+      button.disabled = true
+      button.textContent = '[ ⏳ SENDING ]'
+    }
+
+    const data = new FormData(form)
+    const name = String(data.get('nombre') ?? '').trim()
+    const email = String(data.get('email') ?? '').trim()
+    const message = String(data.get('mensaje') ?? '').trim()
+    const website = String(data.get('website') ?? '').trim()
+    const lang = form?.dataset.lang ?? 'es'
+    if (website) {
+      setStatus('TRANSMITTED', 'ok')
+      if (button) {
+        button.disabled = false
+        button.textContent = '[ ➔ TRANSMIT ]'
+      }
+      return
+    }
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, message, website, lang }),
+      })
+      const json = await res.json().catch(() => ({}))
+      if (res.ok && json.ok) {
+        setStatus('TRANSMITTED', 'ok')
+      } else {
+        setStatus(json.error || 'ERROR', 'err')
+      }
+    } catch {
+      setStatus('ERROR', 'err')
+    }
+    if (button) {
+      button.disabled = false
+      button.textContent = '[ ➔ TRANSMIT ]'
+    }
+  })
+</script>

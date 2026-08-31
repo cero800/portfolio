@@ -1,0 +1,11 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import Home from '../../components/Home.astro'
+import { en } from '../../i18n/en'
+
+const lang = 'en'
+---
+
+<BaseLayout {lang} title={en.baseTitle} description={en.description}>
+  <Home {lang} dict={en} />
+</BaseLayout>

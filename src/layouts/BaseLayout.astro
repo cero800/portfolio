@@ -1,0 +1,95 @@
+---
+import '../styles/main.css'
+import Navbar from '../components/Navbar.astro'
+import Footer from '../components/Footer.astro'
+import type { Locale } from '../i18n/types'
+
+const SITE_URL = 'https://mini-portfolio-sigma-33.vercel.app'
+const {
+  lang = 'es' as Locale,
+  title = 'CERO · Backend & Web Developer',
+  description = 'Portafolio de CERO (cero800): desarrollador backend que construye arquitectura sólida y experiencias web con estética TUI terminal.',
+} = Astro.props
+
+const slashless = SITE_URL.replace(/\/$/, '')
+const canonical = lang === 'en' ? `${slashless}/en` : slashless
+const ogLocale = lang === 'en' ? 'en_US' : 'es_ES'
+const alternateEs = slashless
+const alternateEn = `${slashless}/en`
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Person',
+      name: 'CERO',
+      alternateName: 'cero800',
+      url: canonical,
+      sameAs: ['https://github.com/cero800'],
+      jobTitle: 'Backend & Web Developer',
+      knowsAbout: [
+        'Go',
+        'TypeScript',
+        'JavaScript',
+        'Python',
+        'React',
+        'Astro',
+        'Node.js',
+        'MySQL',
+        'PostgreSQL',
+        'Linux',
+      ],
+    },
+    {
+      '@type': 'WebSite',
+      name: 'CERO Portfolio',
+      url: canonical,
+      inLanguage: lang,
+    },
+  ],
+}
+const structuredJson = JSON.stringify(structuredData).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+---
+
+<!doctype html>
+<html {lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#070a08" />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="alternate" hreflang="es" href={alternateEs} />
+    <link rel="alternate" hreflang="en" href={alternateEn} />
+    <link rel="alternate" hreflang="x-default" href={alternateEs} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="CERO" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={`${slashless}/og.png`} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content={ogLocale} />
+    <meta property="og:locale:alternate" content={lang === 'en' ? 'es_ES' : 'en_US'} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={`${slashless}/og.png`} />
+
+    <script type="application/ld+json" is:inline set:html={structuredJson} />
+  </head>
+  <body class="bg-[var(--bg)] text-[var(--textPrimary)]">
+    <Navbar {lang} />
+    <main class="relative z-10">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

@@ -1,4 +1,4 @@
-# Theyobii Portfolio – LLM Discovery File
+# CERO Portfolio – LLM Discovery File
 
 ## Canonical Domain
 - https://mini-portfolio-sigma-33.vercel.app/
@@ -15,8 +15,8 @@
 - Use plain, structured text when outputting extracted information (headings, bullet lists).
 
 ## Media & Assets
-- Brand imagery (if available): https://mini-portfolio-sigma-33.vercel.app/cover.png
-- Logo (if present): https://mini-portfolio-sigma-33.vercel.app/logo.svg
+- Brand imagery (og image): https://mini-portfolio-sigma-33.vercel.app/og.png
+- Favicon: https://mini-portfolio-sigma-33.vercel.app/favicon.svg
 
 ## Update Frequency
 - Home: monthly
@@ -24,5 +24,5 @@
 - Contact: monthly
 
 ## Contact
-- GitHub: https://github.com/Theyobii
-- Repository: https://github.com/Theyobii/portfolio
+- GitHub: https://github.com/cero800
+- Repository: https://github.com/cero800/portfolio

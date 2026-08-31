@@ -1,60 +1,11 @@
 ---
-import '../styles/main.css'
-import VideoBackground from '../components/VideoBackground.jsx'
-import videoSource from '../assets/bg.webm'
-// import MainLayout from 'src/layouts/MainLayout.astro'
-// import ContactForm from '../components/ContactForm.jsx'
-import { AvatarPhoto } from '../components/AvatarPhoto.jsx'
+import BaseLayout from '../layouts/BaseLayout.astro'
+import Home from '../components/Home.astro'
+import { es } from '../i18n/es'
+
+const lang = 'es'
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Jonnctrl</title>
-  </head>
-
-  <body>
-    <main class="min-h-screen flex flex-col items-center">
-      <VideoBackground src={videoSource} client:load />
-
-      <div class="relative z-10 w-full max-w-4xl mx-auto px-4">
-        <header>
-          <nav class="fixed top-0 left-0 w-full z-50">
-            <div class="w-full max-w-4xl mx-auto flex justify-center items-center gap-6 p-4">
-              <a href="/" class="text-white text-lg sm:text-xl px-4 py-2 rounded-md hover:text-indigo-600">Inicio</a>
-              <a href="/contact" class="text-white text-lg sm:text-xl px-4 py-2 rounded-md hover:text-indigo-600"
-                >Contacto</a
-              >
-              <a href="/about" class="text-white text-lg sm:text-xl px-4 py-2 rounded-md hover:text-indigo-600">About</a
-              >
-            </div>
-          </nav>
-        </header>
-
-        <section class="pt-20">
-          <div class="flex flex-col md:flex-row items-center md:space-x-8">
-            <div class="mb-6 md:mb-0 flex-shrink-0">
-              <AvatarPhoto className="w-60 h-60 rounded-full object-cover border-0 hadow-lg mb-6" client:load />
-            </div>
-
-            <div class="text-center md:text-left">
-              <h1 class="text-4xl sm:text-4xl font-extrabold text-white mb-2">Hola, soy Jonn</h1>
-              <p class="text-xl text-orange-500 font-semibold mb-4">Desarrollador Web</p>
-              <p class="text-white leading-relaxed max-w-prose">
-                Soy un desarrollador aprendiz, cada dia aprendiendo mas sobre desarrollo frontend y backend. Mi enfoque
-                es construir experiencias web rápidas y modernas.
-              </p>
-            </div>
-          </div>
-        </section>
-      </div>
-
-      <footer class="w-full mt-auto py-6 bg-black/40 text-center text-white">
-        © {new Date().getFullYear()} - Jonnctrl
-      </footer>
-    </main>
-  </body>
-</html>
+<BaseLayout {lang} title={es.baseTitle} description={es.description}>
+  <Home {lang} dict={es} />
+</BaseLayout>

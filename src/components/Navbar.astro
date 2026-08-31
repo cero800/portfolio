@@ -1,0 +1,84 @@
+---
+import { es } from '../i18n/es'
+import { en } from '../i18n/en'
+import type { Locale } from '../i18n/types'
+
+const { lang = 'es' }: { lang?: Locale } = Astro.props
+
+const dict = lang === 'en' ? en : es
+const active = 'text-[var(--terminalGreen)] font-bold'
+const inactive = 'text-[var(--textMuted)]'
+
+const links = [
+  { href: '#mis-proyectos', id: 'mis-proyectos', label: dict.nav.proyectos, n: '1' },
+  { href: '#skills', id: 'skills', label: dict.nav.skills, n: '2' },
+  { href: '#sobre-mi', id: 'sobre-mi', label: dict.nav.sobreMi, n: '3' },
+  { href: '#contacto', id: 'contacto', label: dict.nav.contacto, n: '4' },
+]
+---
+
+<header class="terminal-header fixed top-0 left-0 w-full z-50">
+  <nav class="w-full max-w-6xl mx-auto px-4 py-2.5">
+    <div class="flex items-center gap-1 whitespace-nowrap overflow-x-auto font-mono text-xs sm:text-sm">
+      <a href="#inicio" class="nav-tab text-[var(--textPrimary)]">[ CERO ]</a>
+
+      {
+        links.map((link) => (
+          <>
+            <span class="nav-sep hidden sm:inline">─</span>
+            <a href={link.href} data-section={link.id} class="nav-tab">
+              [
+              <>
+                <span>{link.n}:</span>
+                <span>{link.label}</span>
+              </>
+              ]
+            </a>
+          </>
+        ))
+      }
+
+      <span class="nav-sep flex-1 min-w-0 overflow-hidden select-none mx-1 hidden sm:inline">{'─'.repeat(45)}</span>
+
+      <span id="lang-toggle" class="nav-tab hidden sm:inline-block">
+        <a href="/" data-side="es" class={lang === 'es' ? active : inactive}>ES</a>
+        <span class="text-[var(--textMuted)]">|</span>
+        <a href="/en" data-side="en" class={lang === 'en' ? active : inactive}>EN</a>
+      </span>
+
+      <span class="nav-tab cursor-default">[ cero@arch ]</span>
+    </div>
+  </nav>
+</header>
+
+<script>
+  const links = Array.from(document.querySelectorAll<HTMLAnchorElement>('a.nav-tab[data-section]'))
+  const sections = links
+    .filter((link) => link.dataset.section)
+    .map((link) => document.getElementById(link.dataset.section as string))
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          links.forEach((link) => {
+            const isActive = link.dataset.section === entry.target.id
+            link.classList.toggle('active', isActive)
+            if (isActive) link.setAttribute('aria-current', 'true')
+            else link.removeAttribute('aria-current')
+          })
+        }
+      })
+    },
+    { rootMargin: '-40% 0px -55% 0px', threshold: 0 },
+  )
+
+  sections.forEach((section) => section && observer.observe(section))
+
+  const langToggle = Array.from(document.querySelectorAll<HTMLAnchorElement>('#lang-toggle a[data-side]'))
+  langToggle.forEach((link) => {
+    link.addEventListener('click', () => {
+      link.href = (link.dataset.side === 'en' ? '/en' : '/') + window.location.hash
+    })
+  })
+</script>
