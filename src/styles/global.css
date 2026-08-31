@@ -79,6 +79,20 @@ h6 {
   animation: blink 1s step-end infinite;
 }
 
+.terminal-display {
+  background: var(--cardBg);
+  padding: 12px;
+  border: 1px dashed var(--border);
+}
+
+.terminal-prompt {
+  border-color: var(--border);
+}
+
+.footer {
+  border-top: 1px dashed var(--border);
+}
+
 @keyframes blink {
   0%,
   100% {
