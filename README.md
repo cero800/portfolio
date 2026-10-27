@@ -28,7 +28,7 @@ Puedes ver la versión desplegada en:
 - **Tailwind CSS v3:** Diseño _utility-first_, completamente _responsive_.
 - **TypeScript:** Tipado en todo el proyecto, con `astro check` y ESLint en la verificación.
 - **Resend + Zod:** API endpoint para el formulario de contacto, con validación, _honeypot_ y rate-limit (3 envíos/hora por IP).
-- **GitHub API:** La sección de proyectos **descubre automáticamente** los repos públicos, los ordena por relevancia y muestra los 6 más destacados con datos vivos (estrellas, lenguaje, última actualización, topics y homepage) obtenidos **una sola vez durante el build**. Ver [Proyectos desde GitHub](#-proyectos-desde-github-automático).
+- **GitHub API:** La sección de proyectos **descubre automáticamente** los repos públicos, los ordena por relevancia y muestra los 6 más destacados con datos vivos (estrellas, lenguaje, última actualización, topics y homepage) obtenidos **una sola vez durante el build**. Usa un snapshot local como respaldo si la API falla. Ver [Proyectos desde GitHub](#-proyectos-desde-github-automático).
 
 ---
 
@@ -109,7 +109,7 @@ temas: topic1, topic2, ...
 - **Ranking (`src/lib/github.ts`):** como la API REST no permite ordenar por estrellas, se calcula un score combinando estrellas, forks, homepage, topics, descripción y recencia. El resultado se ordena de mayor a menor.
 - **Transformación:** cada repo se convierte en `ProjectInfo` usando nombre, descripción, topics (como stack), homepage, lenguaje y fecha de push.
 - **Build estático:** las páginas están prerenderizadas, así que todo se resuelve una vez en `pnpm build`. No hay peticiones a GitHub desde el navegador.
-- **Si la API falla:** la sección muestra un mensaje alternativo; el build no se rompe.
+- **Respaldo automático:** si la API falla (rate limit, red, etc.), se usa `src/data/github-repos.json` generado con `pnpm sync:projects`. Si no hay snapshot, la sección muestra un mensaje alternativo sin romper el build.
 
 **Overrides opcionales (`src/config/projects.ts`)**
 
@@ -137,5 +137,12 @@ En `src/config/projects.ts`: `FEATURED_LIMIT` (por defecto 6), `EXCLUDED_REPO_NA
 | Variable       | Descripción                                                                                                                                                 |
 | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `GITHUB_TOKEN` | Token **opcional** (classic, sin scopes, solo lectura pública). Sube el límite de peticiones de 60 a 5.000 req/h durante el build. Sin él también funciona. |
+
+**Actualizar repositorios**
+
+```bash
+# Sincroniza el snapshot con la API de GitHub (usa GITHUB_TOKEN si está en .env)
+pnpm sync:projects
+```
 
 > Para actualizar los repos hay que volver a desplegar. Si quieres refresco automático, puedes añadir un _Deploy Hook_ de Vercel y un _cron_ que lo dispare.
