@@ -101,7 +101,9 @@ const skillsHtml = skills
     <div class="max-w-4xl mx-auto px-4 w-full">
       <TypewriterTitle title={dict.sections.proyectos} command="ls ./projects" />
 
-      <FileExplorer client:idle {projects} {lang} labels={dict.projectsMeta} />
+      <div class="w-full bg-[#0c140d]/80 backdrop-blur-sm border border-[#1e5631]/80 rounded-none overflow-hidden">
+        <FileExplorer client:idle {projects} {lang} labels={dict.projectsMeta} />
+      </div>
     </div>
   </Section>
 
