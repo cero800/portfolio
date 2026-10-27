@@ -1,5 +1,19 @@
 export type Locale = 'es' | 'en'
 
+/**
+ * Datos vivos traídos de la API de GitHub durante el build.
+ * El campo `meta` es opcional en `ProjectInfo`: el proyecto puede renderizarse
+ * sin metadata si la API no devuelve datos para ese repo.
+ */
+export interface RepoMeta {
+  stars: number
+  language: string | null
+  /** Fecha ISO de `pushed_at`. */
+  updated: string
+  topics: string[]
+  homepage: string | null
+}
+
 export interface ProjectInfo {
   name: string
   perm: string
@@ -9,6 +23,10 @@ export interface ProjectInfo {
   stack: string[]
   demo: string
   code: string
+  /** Repositorio en GitHub, formato "owner/repo". Clave para consultar la API. */
+  repo: string
+  /** Rellenado en build por `src/lib/github.ts`. */
+  meta?: RepoMeta
 }
 
 export interface Dict {
@@ -45,5 +63,9 @@ export interface Dict {
     backHome: string
     viewProjects: string
   }
-  projects: ProjectInfo[]
+  projectsMeta: {
+    updated: string
+    topics: string
+    empty: string
+  }
 }

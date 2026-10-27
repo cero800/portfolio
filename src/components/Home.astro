@@ -2,8 +2,10 @@
 import Section from './Section.astro'
 import TerminalLogo from './TerminalLogo.astro'
 import TerminalTitle from './TerminalTitle.astro'
+import TypewriterTitle from './TypewriterTitle.astro'
 import FileExplorer from './FileExplorer.tsx'
 import GitHubLink from './GitHubLink.astro'
+import { getFeaturedProjects } from '../lib/github'
 import avatarText from '../assets/avatar.txt?raw'
 import type { Dict, Locale } from '../i18n/types'
 
@@ -12,6 +14,9 @@ interface Props {
   lang: Locale
 }
 const { dict, lang } = Astro.props
+
+// La lista y el orden salen de GitHub (ranking por relevancia) en build.
+const projects = await getFeaturedProjects(lang)
 
 const skills = [
   {
@@ -81,11 +86,11 @@ const skillsHtml = skills
     <div class="max-w-3xl mx-auto px-4">
       <TerminalLogo />
 
-      <p class="text-lg text-[var(--textMuted)] mb-8 max-w-lg mx-auto">{dict.hero.tagline}</p>
+      <p class="glitch-hover text-lg text-[var(--textMuted)] mb-8 max-w-lg mx-auto">{dict.hero.tagline}</p>
 
       <div class="flex flex-wrap gap-4 justify-center">
-        <a href="#mis-proyectos" class="btn-primary">{dict.hero.verProyectos}</a>
-        <a href="#sobre-mi" class="btn-primary">{dict.hero.sobreMi}</a>
+        <a href="#mis-proyectos" class="btn-primary btn-glow magnetic">{dict.hero.verProyectos}</a>
+        <a href="#sobre-mi" class="btn-primary btn-glow magnetic">{dict.hero.sobreMi}</a>
       </div>
 
       <GitHubLink />
@@ -94,17 +99,17 @@ const skillsHtml = skills
 
   <Section id="mis-proyectos" className="items-start pt-28">
     <div class="max-w-4xl mx-auto px-4 w-full">
-      <TerminalTitle title={dict.sections.proyectos} command="ls ./projects" />
+      <TypewriterTitle title={dict.sections.proyectos} command="ls ./projects" />
 
-      <FileExplorer client:idle projects={dict.projects} />
+      <FileExplorer client:idle {projects} {lang} labels={dict.projectsMeta} />
     </div>
   </Section>
 
   <Section id="skills" className="items-start pt-28">
     <div class="max-w-4xl mx-auto px-4 w-full">
-      <TerminalTitle title={dict.sections.skills} command="cat ./skills.txt" />
+      <TypewriterTitle title={dict.sections.skills} command="cat ./skills.txt" />
 
-      <div class="w-full bg-[#0c140d] border border-[#1e5631] rounded-none font-mono px-4 py-5 sm:px-6 overflow-x-auto">
+      <div class="w-full bg-[#0c140d]/80 backdrop-blur-sm border border-[#1e5631]/80 rounded-none font-mono px-4 py-5 sm:px-6 overflow-x-auto">
         <pre class="text-xs sm:text-sm leading-6 whitespace-pre" set:html={skillsHtml} />
       </div>
     </div>
@@ -112,11 +117,11 @@ const skillsHtml = skills
 
   <Section id="sobre-mi">
     <div class="max-w-4xl mx-auto px-4 w-full">
-      <TerminalTitle title={dict.sections.sobreMi} command="neofetch" />
+      <TypewriterTitle title={dict.sections.sobreMi} command="neofetch" />
       <div class="flex flex-col md:flex-row items-start gap-8 md:gap-12">
         <div class="order-1 md:order-2 w-full md:w-auto shrink-0 flex justify-center">
           <pre
-            class="font-mono text-[#45f585] text-[11px] sm:text-xs lg:text-sm leading-[1.1] whitespace-pre select-none">{avatarText}</pre>
+            class="glitch-hover font-mono text-[#45f585] text-[11px] sm:text-xs lg:text-sm leading-[1.1] whitespace-pre select-none">{avatarText}</pre>
         </div>
 
         <div class="order-2 md:order-1 flex-1 w-full min-w-0 font-mono text-xs sm:text-sm leading-7">
@@ -159,7 +164,7 @@ const skillsHtml = skills
 
   <Section id="contacto">
     <div class="max-w-4xl mx-auto px-4 w-full">
-      <TerminalTitle title={dict.sections.contacto} command="mail --compose" />
+      <TypewriterTitle title={dict.sections.contacto} command="mail --compose" />
 
       <div class="max-w-lg mx-auto">
         <div class="bg-[#0c140d] border border-[#1e5631] rounded-none font-mono text-xs sm:text-sm">
@@ -278,6 +283,15 @@ const skillsHtml = skills
       const json = await res.json().catch(() => ({}))
       if (res.ok && json.ok) {
         setStatus('TRANSMITTED', 'ok')
+        const rect = button?.getBoundingClientRect()
+        window.dispatchEvent(
+          new CustomEvent('ascii-burst', {
+            detail: {
+              x: (rect?.left ?? window.innerWidth / 2) + (rect?.width ?? 0) / 2,
+              y: (rect?.top ?? window.innerHeight / 2) + (rect?.height ?? 0) / 2,
+            },
+          }),
+        )
       } else {
         setStatus(json.error || 'ERROR', 'err')
       }

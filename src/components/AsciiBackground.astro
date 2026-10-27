@@ -1,0 +1,114 @@
+---
+---
+<canvas
+  id="ascii-bg"
+  aria-hidden="true"
+  class="pointer-events-none fixed inset-0 z-[-3] h-full w-full"
+></canvas>
+
+<script>
+  const canvas = document.getElementById("ascii-bg");
+  const ctx2 = canvas && canvas.getContext ? canvas.getContext("2d") : null;
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const coarsePointer = window.matchMedia("(pointer: coarse)").matches;
+
+  if (canvas && ctx2 && !reduceMotion && !coarsePointer) {
+    const CHARS = "01<>[]{}/\\|=+*#$%&@:~;.,^`".split("");
+    let dpr = Math.min(window.devicePixelRatio || 1, 1);
+    let width = 0;
+    let height = 0;
+    const cell = 24;
+    const cells = [];
+    let mouseX = -9999;
+    let mouseY = -9999;
+    let targetX = -9999;
+    let targetY = -9999;
+    const radius = 300;
+
+    function resize() {
+      dpr = Math.min(window.devicePixelRatio || 1, 1.25);
+      width = window.innerWidth;
+      height = window.innerHeight;
+      canvas.width = Math.floor(width * dpr);
+      canvas.height = Math.floor(height * dpr);
+      canvas.style.width = width + "px";
+      canvas.style.height = height + "px";
+      ctx2.setTransform(dpr, 0, 0, dpr, 0, 0);
+      cells.length = 0;
+      const cols = Math.ceil(width / cell);
+      const rows = Math.ceil(height / cell);
+      for (let y = 0; y < rows; y += 1) {
+        for (let x = 0; x < cols; x += 1) {
+          const nx = (x / cols) * 2 - 1;
+          const ny = (y / rows) * 2 - 1;
+          const depth = Math.hypot(nx, ny);
+          cells.push({
+            x: x * cell + cell / 2,
+            y: y * cell + cell / 2,
+            ch: CHARS[(Math.random() * CHARS.length) | 0],
+            baseAlpha: (1 - Math.min(depth, 1)) * 0.08,
+            glow: 0,
+          });
+        }
+      }
+    }
+
+    function onMove(e) {
+      if (e.pointerType === "touch") return;
+      targetX = e.clientX;
+      targetY = e.clientY;
+      mouseX = targetX;
+      mouseY = targetY;
+    }
+
+    function draw() {
+      ctx2.clearRect(0, 0, width, height);
+
+      const r2 = radius * radius;
+      for (let i = 0; i < cells.length; i += 1) {
+        const c = cells[i];
+        const dx = c.x - mouseX;
+        const dy = c.y - mouseY;
+        const dist2 = dx * dx + dy * dy;
+        if (dist2 < r2) {
+          const dist = Math.sqrt(dist2);
+          const t = 1 - dist / radius;
+          c.glow = Math.min(c.glow + t * 0.35, t);
+          if (Math.random() > 0.995) c.ch = CHARS[(Math.random() * CHARS.length) | 0];
+        } else {
+          c.glow = Math.max(c.glow - 0.012, 0);
+        }
+        const a = c.baseAlpha + c.glow * 0.5;
+        if (a < 0.006) continue;
+        if (c.glow > 0.4) {
+          ctx2.globalAlpha = a;
+          ctx2.fillStyle = "#7dffb0";
+          ctx2.shadowColor = "transparent";
+          ctx2.shadowBlur = 0;
+        } else if (c.glow > 0.2) {
+          ctx2.globalAlpha = a;
+          ctx2.fillStyle = "#45f585";
+          ctx2.shadowColor = "transparent";
+          ctx2.shadowBlur = 0;
+        } else {
+          ctx2.globalAlpha = a;
+          ctx2.fillStyle = "#34d36d";
+          ctx2.shadowColor = "transparent";
+          ctx2.shadowBlur = 0;
+        }
+        ctx2.font = "16px \"Fira Code\", monospace";
+        ctx2.textAlign = "center";
+        ctx2.textBaseline = "middle";
+        ctx2.fillText(c.ch, c.x, c.y);
+      }
+      ctx2.globalAlpha = 1;
+      ctx2.shadowBlur = 0;
+      requestAnimationFrame(draw);
+    }
+
+    resize();
+    window.addEventListener("resize", resize, { passive: true });
+    window.addEventListener("pointermove", onMove, { passive: true });
+    requestAnimationFrame(draw);
+  }
+</script>

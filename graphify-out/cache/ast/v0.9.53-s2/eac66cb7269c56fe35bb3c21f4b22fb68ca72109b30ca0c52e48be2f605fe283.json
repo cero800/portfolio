@@ -1,0 +1,41 @@
+{
+  "nodes": [
+    {
+      "id": "$graphify-root$_src_components_terminaltitle_astro",
+      "label": "TerminalTitle.astro",
+      "file_type": "code",
+      "source_file": "src/components/TerminalTitle.astro",
+      "source_location": "L1"
+    },
+    {
+      "id": "$graphify-root$_src_components_terminaltitle_titlepadded",
+      "label": "titlePadded",
+      "file_type": "code",
+      "source_file": "src/components/TerminalTitle.astro",
+      "source_location": "L3"
+    }
+  ],
+  "edges": [
+    {
+      "source": "$graphify-root$_src_components_terminaltitle_astro",
+      "target": "$graphify-root$_src_components_terminaltitle_titlepadded",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/TerminalTitle.astro",
+      "source_location": "L3",
+      "weight": 1.0
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "$graphify-root$_src_components_terminaltitle_astro",
+      "callee": "command",
+      "is_member_call": false,
+      "indirect": true,
+      "context": "collection",
+      "source_file": "src/components/TerminalTitle.astro",
+      "source_location": "L18"
+    }
+  ],
+  "parse_errors": { "first_error_line": 2, "multiline_error": true }
+}

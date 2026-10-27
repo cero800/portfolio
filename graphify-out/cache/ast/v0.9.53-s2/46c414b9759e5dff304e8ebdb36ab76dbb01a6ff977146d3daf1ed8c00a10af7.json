@@ -1,0 +1,48 @@
+{
+  "nodes": [
+    {
+      "id": "$graphify-root$_src_components_githublink_astro",
+      "label": "GitHubLink.astro",
+      "file_type": "code",
+      "source_file": "src/components/GitHubLink.astro",
+      "source_location": "L1"
+    },
+    {
+      "id": "simple_icons",
+      "label": "simple-icons",
+      "file_type": "code",
+      "source_file": "simple-icons",
+      "confidence": "EXTRACTED"
+    }
+  ],
+  "edges": [
+    {
+      "source": "$graphify-root$_src_components_githublink_astro",
+      "target": "$graphify-root$_src_components_icon_astro",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/GitHubLink.astro",
+      "source_location": "L3",
+      "weight": 1.0,
+      "target_file": "$graphify-root$/src/components/Icon.astro"
+    },
+    {
+      "source": "$graphify-root$_src_components_githublink_astro",
+      "target": "simple_icons",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/GitHubLink.astro"
+    },
+    {
+      "source": "$graphify-root$_src_components_githublink_astro",
+      "target": "$graphify-root$_src_components_icon_astro",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/GitHubLink.astro",
+      "target_file": "$graphify-root$/src/components/Icon.astro"
+    }
+  ],
+  "raw_calls": [],
+  "parse_errors": { "first_error_line": 2, "multiline_error": true }
+}

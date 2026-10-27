@@ -6,6 +6,7 @@
     "dev": "astro dev",
     "build": "astro build && node ./scripts/gen_sitemap.ts https://mini-portfolio-sigma-33.vercel.app dist > dist/sitemap.xml",
     "preview": "astro preview",
+    "sync:projects": "node scripts/sync-projects.mjs",
     "astro": "astro",
     "type-check": "tsc --noEmit",
     "lint": "eslint . --ignore-pattern \"./.astro/**\" --ignore-pattern \"./dist/**\" --ignore-pattern \"./.vercel/**\"",

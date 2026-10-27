@@ -4,6 +4,9 @@ import Home from '../../components/Home.astro'
 import { en } from '../../i18n/en'
 
 const lang = 'en'
+
+// Página estática: los datos de GitHub se obtienen una vez durante el build.
+export const prerender = true
 ---
 
 <BaseLayout {lang} title={en.baseTitle} description={en.description}>

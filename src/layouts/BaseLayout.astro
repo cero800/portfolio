@@ -2,6 +2,11 @@
 import '../styles/main.css'
 import Navbar from '../components/Navbar.astro'
 import Footer from '../components/Footer.astro'
+import AsciiTrail from '../components/AsciiTrail.astro'
+import BootSequence from '../components/BootSequence.astro'
+import AsciiBackground from '../components/AsciiBackground.astro'
+import ConfettiBurst from '../components/ConfettiBurst.astro'
+import ViewTransitions from '../components/ViewTransitions.astro'
 import type { Locale } from '../i18n/types'
 
 const SITE_URL = 'https://mini-portfolio-sigma-33.vercel.app'
@@ -86,10 +91,73 @@ const structuredJson = JSON.stringify(structuredData).replace(/&/g, '&amp;').rep
     <script type="application/ld+json" is:inline set:html={structuredJson} />
   </head>
   <body class="bg-[var(--bg)] text-[var(--textPrimary)]">
+    <BootSequence />
+    <AsciiBackground />
+    <AsciiTrail />
+    <ConfettiBurst />
+    <ViewTransitions />
     <Navbar {lang} />
     <main class="relative z-10">
       <slot />
     </main>
     <Footer />
+    <script>
+      // Reveal suave de las secciones al entrar en viewport (Web Animations).
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+      if (!reduceMotion && 'IntersectionObserver' in window) {
+        const sections = Array.from(document.querySelectorAll<HTMLElement>('.section')).slice(1)
+        if (sections.length > 0) {
+          const observer = new IntersectionObserver(
+            (entries) => {
+              for (const entry of entries) {
+                if (!entry.isIntersecting) continue
+                const el = entry.target as HTMLElement
+                el.animate(
+                  [
+                    { opacity: 0, transform: 'translateY(18px)' },
+                    { opacity: 1, transform: 'translateY(0)' },
+                  ],
+                  { duration: 520, easing: 'cubic-bezier(0.22, 0.61, 0.36, 1)', fill: 'both' },
+                )
+                observer.unobserve(el)
+              }
+            },
+            { threshold: 0.2 },
+          )
+          for (const section of sections) observer.observe(section)
+        }
+      }
+
+      // Botones magnéticos sutiles
+      if (!reduceMotion && window.matchMedia('(pointer: fine)').matches) {
+        const magnets = document.querySelectorAll<HTMLElement>('.magnetic')
+        for (const el of magnets) {
+          const strength = 12
+          el.addEventListener('mousemove', (e) => {
+            const rect = el.getBoundingClientRect()
+            const x = e.clientX - rect.left - rect.width / 2
+            const y = e.clientY - rect.top - rect.height / 2
+            el.style.transform = `translate(${(x / rect.width) * strength}px, ${(y / rect.height) * strength}px)`
+          })
+          el.addEventListener('mouseleave', () => {
+            el.style.transform = 'translate(0, 0)'
+          })
+        }
+
+        // Tilt 3D en tarjeta de proyecto
+        const tiltEl = document.querySelector<HTMLElement>('.project-tilt')
+        if (tiltEl) {
+          tiltEl.addEventListener('mousemove', (e) => {
+            const rect = tiltEl.getBoundingClientRect()
+            const x = (e.clientX - rect.left) / rect.width - 0.5
+            const y = (e.clientY - rect.top) / rect.height - 0.5
+            tiltEl.style.transform = `perspective(900px) rotateY(${x * 4}deg) rotateX(${-y * 4}deg)`
+          })
+          tiltEl.addEventListener('mouseleave', () => {
+            tiltEl.style.transform = 'perspective(900px) rotateY(0deg) rotateX(0deg)'
+          })
+        }
+      }
+    </script>
   </body>
 </html>

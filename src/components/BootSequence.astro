@@ -1,0 +1,56 @@
+---
+// Secuencia de arranque tipo terminal (se muestra una vez por sesión)
+---
+
+<div id="boot-seq" class="boot-seq" aria-hidden="true">
+  <div class="boot-seq-inner font-mono text-xs sm:text-sm">
+    <pre id="boot-lines" class="boot-lines"></pre>
+    <span id="boot-cursor" class="boot-cursor">▌</span>
+  </div>
+</div>
+
+<script>
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  const boot = document.getElementById('boot-seq') as HTMLElement | null
+  const lines = document.getElementById('boot-lines') as HTMLElement | null
+  const cursor = document.getElementById('boot-cursor') as HTMLElement | null
+
+  if (boot && lines && cursor && !reduceMotion) {
+    const key = 'cero-boot-seq'
+    if (sessionStorage.getItem(key)) {
+      boot.remove()
+    } else {
+      const messages = [
+        '[ OK ] Inicializando kernel...',
+        '[ OK ] Montando sistema de archivos...',
+        '[ OK ] Cargando módulos de red...',
+        '[ OK ] Iniciando servicios...',
+        '[ OK ] Arrancando interfaz TUI...',
+        '[ OK ] Sistema listo.',
+      ]
+
+      let idx = 0
+      const append = () => {
+        if (idx < messages.length) {
+          const div = document.createElement('div')
+          div.textContent = messages[idx]
+          lines.appendChild(div)
+          idx += 1
+          setTimeout(append, 280)
+        } else {
+          cursor.style.display = 'none'
+          setTimeout(() => {
+            boot.classList.add('boot-seq-hide')
+            setTimeout(() => {
+              boot.remove()
+              sessionStorage.setItem(key, '1')
+            }, 600)
+          }, 400)
+        }
+      }
+      setTimeout(append, 300)
+    }
+  } else if (boot) {
+    boot.remove()
+  }
+</script>

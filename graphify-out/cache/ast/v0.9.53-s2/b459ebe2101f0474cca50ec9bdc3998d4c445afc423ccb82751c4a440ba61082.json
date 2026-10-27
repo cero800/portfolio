@@ -1,0 +1,111 @@
+{
+  "nodes": [
+    {
+      "id": "$graphify-root$_src_components_navbar_astro",
+      "label": "Navbar.astro",
+      "file_type": "code",
+      "source_file": "src/components/Navbar.astro",
+      "source_location": "L1"
+    }
+  ],
+  "edges": [
+    {
+      "source": "$graphify-root$_src_components_navbar_astro",
+      "target": "$graphify-root$_src_i18n_en_ts",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Navbar.astro",
+      "source_location": "L3",
+      "weight": 1.0,
+      "target_file": "$graphify-root$/src/i18n/en.ts"
+    },
+    {
+      "source": "$graphify-root$_src_components_navbar_astro",
+      "target": "$graphify-root$_src_i18n_en_en",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Navbar.astro",
+      "source_location": "L3",
+      "weight": 1.0,
+      "target_file": "$graphify-root$/src/i18n/en.ts"
+    },
+    {
+      "source": "$graphify-root$_src_components_navbar_astro",
+      "target": "$graphify-root$_src_i18n_types_ts",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Navbar.astro",
+      "source_location": "L4",
+      "weight": 1.0,
+      "target_file": "$graphify-root$/src/i18n/types.ts"
+    },
+    {
+      "source": "$graphify-root$_src_components_navbar_astro",
+      "target": "$graphify-root$_src_i18n_types_locale",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Navbar.astro",
+      "source_location": "L4",
+      "weight": 1.0,
+      "target_file": "$graphify-root$/src/i18n/types.ts"
+    },
+    {
+      "source": "$graphify-root$_src_components_navbar_astro",
+      "target": "$graphify-root$_src_i18n_es_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Navbar.astro",
+      "target_file": "$graphify-root$/src/i18n/es.ts"
+    },
+    {
+      "source": "$graphify-root$_src_components_navbar_astro",
+      "target": "$graphify-root$_src_i18n_en_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Navbar.astro",
+      "target_file": "$graphify-root$/src/i18n/en.ts"
+    },
+    {
+      "source": "$graphify-root$_src_components_navbar_astro",
+      "target": "$graphify-root$_src_i18n_types_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Navbar.astro",
+      "target_file": "$graphify-root$/src/i18n/types.ts"
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "$graphify-root$_src_components_navbar_astro",
+      "callee": "CERO",
+      "is_member_call": false,
+      "indirect": true,
+      "context": "collection",
+      "source_file": "src/components/Navbar.astro",
+      "source_location": "L23"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_components_navbar_astro",
+      "callee": "menuClose",
+      "is_member_call": false,
+      "indirect": true,
+      "context": "argument",
+      "source_file": "src/components/Navbar.astro",
+      "source_location": "L147"
+    },
+    {
+      "caller_nid": "$graphify-root$_src_components_navbar_astro",
+      "callee": "close",
+      "is_member_call": false,
+      "indirect": true,
+      "context": "argument",
+      "source_file": "src/components/Navbar.astro",
+      "source_location": "L148"
+    }
+  ],
+  "parse_errors": { "first_error_line": 1, "multiline_error": true }
+}

@@ -1,0 +1,220 @@
+{
+  "nodes": [
+    {
+      "id": "$graphify-root$_readme_md",
+      "label": "README.md",
+      "file_type": "document",
+      "node_kind": "page",
+      "source_file": "README.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "$graphify-root$_readme_mi_portafolio_personal_astro_react_tailwind_css",
+      "label": "Mi Portafolio Personal (Astro, React & Tailwind CSS)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "source_file": "README.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "$graphify-root$_readme_previsualizaci\u00f3n_del_sitio",
+      "label": "\ud83d\uddbc\ufe0f Previsualizaci\u00f3n del Sitio",
+      "file_type": "document",
+      "node_kind": "heading",
+      "source_file": "README.md",
+      "source_location": "L11"
+    },
+    {
+      "id": "$graphify-root$_readme_demo_en_vivo",
+      "label": "\ud83c\udf10 Demo en Vivo",
+      "file_type": "document",
+      "node_kind": "heading",
+      "source_file": "README.md",
+      "source_location": "L15"
+    },
+    {
+      "id": "$graphify-root$_readme_tecnolog\u00edas_clave",
+      "label": "\ud83d\ude80 Tecnolog\u00edas Clave",
+      "file_type": "document",
+      "node_kind": "heading",
+      "source_file": "README.md",
+      "source_location": "L24"
+    },
+    {
+      "id": "$graphify-root$_readme_configuraci\u00f3n_y_desarrollo_local",
+      "label": "\u2699\ufe0f Configuraci\u00f3n y Desarrollo Local",
+      "file_type": "document",
+      "node_kind": "heading",
+      "source_file": "README.md",
+      "source_location": "L35"
+    },
+    {
+      "id": "$graphify-root$_readme_prerrequisitos",
+      "label": "Prerrequisitos",
+      "file_type": "document",
+      "node_kind": "heading",
+      "source_file": "README.md",
+      "source_location": "L37"
+    },
+    {
+      "id": "$graphify-root$_readme_instalaci\u00f3n",
+      "label": "Instalaci\u00f3n",
+      "file_type": "document",
+      "node_kind": "heading",
+      "source_file": "README.md",
+      "source_location": "L42"
+    },
+    {
+      "id": "$graphify-root$_readme_ejecutar_en_modo_desarrollo",
+      "label": "Ejecutar en Modo Desarrollo",
+      "file_type": "document",
+      "node_kind": "heading",
+      "source_file": "README.md",
+      "source_location": "L57"
+    },
+    {
+      "id": "$graphify-root$_readme_checklist_de_verificaci\u00f3n",
+      "label": "Checklist de Verificaci\u00f3n",
+      "file_type": "document",
+      "node_kind": "heading",
+      "source_file": "README.md",
+      "source_location": "L65"
+    },
+    {
+      "id": "$graphify-root$_readme_regenerar_assets_de_marca",
+      "label": "Regenerar Assets de Marca",
+      "file_type": "document",
+      "node_kind": "heading",
+      "source_file": "README.md",
+      "source_location": "L76"
+    },
+    {
+      "id": "$graphify-root$_readme_variables_de_entorno_formulario_de_contacto",
+      "label": "Variables de Entorno (formulario de contacto)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "source_file": "README.md",
+      "source_location": "L84"
+    },
+    {
+      "id": "$graphify-root$_readme_proyectos_desde_github_autom\u00e1tico",
+      "label": "\ud83d\udc19 Proyectos desde GitHub (autom\u00e1tico)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "source_file": "README.md",
+      "source_location": "L96"
+    }
+  ],
+  "edges": [
+    {
+      "source": "$graphify-root$_readme_md",
+      "target": "$graphify-root$_readme_mi_portafolio_personal_astro_react_tailwind_css",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_readme_mi_portafolio_personal_astro_react_tailwind_css",
+      "target": "$graphify-root$_readme_previsualizaci\u00f3n_del_sitio",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_readme_mi_portafolio_personal_astro_react_tailwind_css",
+      "target": "$graphify-root$_readme_demo_en_vivo",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_readme_mi_portafolio_personal_astro_react_tailwind_css",
+      "target": "$graphify-root$_readme_tecnolog\u00edas_clave",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_readme_mi_portafolio_personal_astro_react_tailwind_css",
+      "target": "$graphify-root$_readme_configuraci\u00f3n_y_desarrollo_local",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L35",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_readme_configuraci\u00f3n_y_desarrollo_local",
+      "target": "$graphify-root$_readme_prerrequisitos",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L37",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_readme_configuraci\u00f3n_y_desarrollo_local",
+      "target": "$graphify-root$_readme_instalaci\u00f3n",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L42",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_readme_configuraci\u00f3n_y_desarrollo_local",
+      "target": "$graphify-root$_readme_ejecutar_en_modo_desarrollo",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L57",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_readme_configuraci\u00f3n_y_desarrollo_local",
+      "target": "$graphify-root$_readme_checklist_de_verificaci\u00f3n",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L65",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_readme_configuraci\u00f3n_y_desarrollo_local",
+      "target": "$graphify-root$_readme_regenerar_assets_de_marca",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L76",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_readme_configuraci\u00f3n_y_desarrollo_local",
+      "target": "$graphify-root$_readme_variables_de_entorno_formulario_de_contacto",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L84",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_readme_configuraci\u00f3n_y_desarrollo_local",
+      "target": "$graphify-root$_readme_proyectos_desde_github_autom\u00e1tico",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L96",
+      "weight": 1.0
+    }
+  ],
+  "input_tokens": 0,
+  "output_tokens": 0
+}

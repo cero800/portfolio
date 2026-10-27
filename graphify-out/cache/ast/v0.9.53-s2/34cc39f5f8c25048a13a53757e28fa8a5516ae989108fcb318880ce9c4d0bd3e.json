@@ -1,0 +1,172 @@
+{
+  "nodes": [
+    {
+      "id": "$graphify-root$_src_layouts_baselayout_astro",
+      "label": "BaseLayout.astro",
+      "file_type": "code",
+      "source_file": "src/layouts/BaseLayout.astro",
+      "source_location": "L1"
+    },
+    {
+      "id": "$graphify-root$_src_layouts_baselayout_slashless",
+      "label": "slashless",
+      "file_type": "code",
+      "source_file": "src/layouts/BaseLayout.astro",
+      "source_location": "L15"
+    },
+    {
+      "id": "$graphify-root$_src_layouts_baselayout_structureddata",
+      "label": "structuredData",
+      "file_type": "code",
+      "source_file": "src/layouts/BaseLayout.astro",
+      "source_location": "L21"
+    },
+    {
+      "id": "$graphify-root$_src_layouts_baselayout_structuredjson",
+      "label": "structuredJson",
+      "file_type": "code",
+      "source_file": "src/layouts/BaseLayout.astro",
+      "source_location": "L52"
+    }
+  ],
+  "edges": [
+    {
+      "source": "$graphify-root$_src_layouts_baselayout_astro",
+      "target": "$graphify-root$_src_components_navbar_astro",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/layouts/BaseLayout.astro",
+      "source_location": "L3",
+      "weight": 1.0,
+      "target_file": "$graphify-root$/src/components/Navbar.astro"
+    },
+    {
+      "source": "$graphify-root$_src_layouts_baselayout_astro",
+      "target": "$graphify-root$_src_components_footer_astro",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/layouts/BaseLayout.astro",
+      "source_location": "L4",
+      "weight": 1.0,
+      "target_file": "$graphify-root$/src/components/Footer.astro"
+    },
+    {
+      "source": "$graphify-root$_src_layouts_baselayout_astro",
+      "target": "$graphify-root$_src_components_asciitrail_astro",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/layouts/BaseLayout.astro",
+      "source_location": "L5",
+      "weight": 1.0,
+      "target_file": "$graphify-root$/src/components/AsciiTrail.astro"
+    },
+    {
+      "source": "$graphify-root$_src_layouts_baselayout_astro",
+      "target": "$graphify-root$_src_i18n_types_ts",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/layouts/BaseLayout.astro",
+      "source_location": "L6",
+      "weight": 1.0,
+      "target_file": "$graphify-root$/src/i18n/types.ts"
+    },
+    {
+      "source": "$graphify-root$_src_layouts_baselayout_astro",
+      "target": "$graphify-root$_src_i18n_types_locale",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/layouts/BaseLayout.astro",
+      "source_location": "L6",
+      "weight": 1.0,
+      "target_file": "$graphify-root$/src/i18n/types.ts"
+    },
+    {
+      "source": "$graphify-root$_src_layouts_baselayout_astro",
+      "target": "$graphify-root$_src_layouts_baselayout_slashless",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/layouts/BaseLayout.astro",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_src_layouts_baselayout_astro",
+      "target": "$graphify-root$_src_layouts_baselayout_structureddata",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/layouts/BaseLayout.astro",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_src_layouts_baselayout_astro",
+      "target": "$graphify-root$_src_layouts_baselayout_structuredjson",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/layouts/BaseLayout.astro",
+      "source_location": "L52",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_src_layouts_baselayout_astro",
+      "target": "$graphify-root$_src_styles_main_css",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/layouts/BaseLayout.astro",
+      "target_file": "$graphify-root$/src/styles/main.css"
+    },
+    {
+      "source": "$graphify-root$_src_layouts_baselayout_astro",
+      "target": "$graphify-root$_src_components_navbar_astro",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/layouts/BaseLayout.astro",
+      "target_file": "$graphify-root$/src/components/Navbar.astro"
+    },
+    {
+      "source": "$graphify-root$_src_layouts_baselayout_astro",
+      "target": "$graphify-root$_src_components_footer_astro",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/layouts/BaseLayout.astro",
+      "target_file": "$graphify-root$/src/components/Footer.astro"
+    },
+    {
+      "source": "$graphify-root$_src_layouts_baselayout_astro",
+      "target": "$graphify-root$_src_components_asciitrail_astro",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/layouts/BaseLayout.astro",
+      "target_file": "$graphify-root$/src/components/AsciiTrail.astro"
+    },
+    {
+      "source": "$graphify-root$_src_layouts_baselayout_astro",
+      "target": "$graphify-root$_src_i18n_types_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/layouts/BaseLayout.astro",
+      "target_file": "$graphify-root$/src/i18n/types.ts"
+    }
+  ],
+  "raw_calls": [
+    {
+      "caller_nid": "$graphify-root$_src_layouts_baselayout_astro",
+      "callee": "section",
+      "is_member_call": false,
+      "indirect": true,
+      "context": "argument",
+      "source_file": "src/layouts/BaseLayout.astro",
+      "source_location": "L119"
+    }
+  ],
+  "parse_errors": { "first_error_line": 2, "multiline_error": true },
+  "ts_type_table": {
+    "path": "$graphify-root$/src/layouts/BaseLayout.astro",
+    "table": { "observer": "IntersectionObserver" }
+  }
+}

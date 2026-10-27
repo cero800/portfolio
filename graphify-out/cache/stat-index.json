@@ -1,0 +1,331 @@
+{
+  ".github/workflows/node-ci.yaml": {
+    "size": 1314,
+    "mtime_ns": 1784213441415912583,
+    "indexed_at_ns": 1792014799569764089,
+    "word_count": 131
+  },
+  ".opencode/opencode.json": {
+    "size": 105,
+    "mtime_ns": 1788158547211290426,
+    "indexed_at_ns": 1792014799620925978,
+    "word_count": 8,
+    "hashes": { ".opencode/opencode.json": "936122822138b12f363fb9b7a8567edaa1f834c835137a4c72d81c17116ce11e" }
+  },
+  ".opencode/plugins/graphify.js": {
+    "size": 1402,
+    "mtime_ns": 1788158627933086390,
+    "indexed_at_ns": 1792014799572322613,
+    "word_count": 197
+  },
+  "AGENTS.md": {
+    "size": 1129,
+    "mtime_ns": 1788158483235163338,
+    "indexed_at_ns": 1792014799630666775,
+    "word_count": 165,
+    "hashes": { "agents.md": "7a3c6e853d6e516d5e92fcc4e96b373e0665220780def176579d00d124d983c5" }
+  },
+  "README.md": {
+    "size": 6940,
+    "mtime_ns": 1792971768736670599,
+    "indexed_at_ns": 1792971846362043744,
+    "word_count": 779,
+    "hashes": { "readme.md": "6e7bd980ea69a74cbceb5ad405a736fd69f4fc421f0dc9c07bc7506045e48c68" }
+  },
+  "astro.config.mjs": {
+    "size": 784,
+    "mtime_ns": 1788131285289190158,
+    "indexed_at_ns": 1792014799575590311,
+    "word_count": 78
+  },
+  "eslint.config.js": {
+    "size": 3827,
+    "mtime_ns": 1784213441416335996,
+    "indexed_at_ns": 1792014799575999524,
+    "word_count": 293
+  },
+  "package.json": {
+    "size": 2111,
+    "mtime_ns": 1793129349021857939,
+    "indexed_at_ns": 1793129696892630970,
+    "word_count": 146,
+    "hashes": { "package.json": "2e9132d5af3b8330022c940e74bb8de621866436ab7e556e7639a93eafdc2c8a" }
+  },
+  "pnpm-workspace.yaml": {
+    "size": 68,
+    "mtime_ns": 1788046250847291990,
+    "indexed_at_ns": 1792014799576863722,
+    "word_count": 7
+  },
+  "postcss.config.js": {
+    "size": 80,
+    "mtime_ns": 1784213441417879752,
+    "indexed_at_ns": 1792014799577291537,
+    "word_count": 11
+  },
+  "prettier.config.mjs": {
+    "size": 252,
+    "mtime_ns": 1784213441417879752,
+    "indexed_at_ns": 1792014799577698321,
+    "word_count": 23
+  },
+  "public/.well-known/llms.txt": {
+    "size": 1047,
+    "mtime_ns": 1788134013234652317,
+    "indexed_at_ns": 1792014799578373029,
+    "word_count": 114
+  },
+  "public/apple-touch-icon.png": {
+    "size": 3052,
+    "mtime_ns": 1788134999273031754,
+    "indexed_at_ns": 1792014799578846567,
+    "word_count": 127
+  },
+  "public/favicon.svg": {
+    "size": 1591,
+    "mtime_ns": 1788134999265031371,
+    "indexed_at_ns": 1792014799579320942,
+    "word_count": 140
+  },
+  "public/og.png": {
+    "size": 36677,
+    "mtime_ns": 1788134999328034386,
+    "indexed_at_ns": 1792014799579746902,
+    "word_count": 1887
+  },
+  "public/robots.txt": {
+    "size": 88,
+    "mtime_ns": 1784213441418579721,
+    "indexed_at_ns": 1792014799581062231,
+    "word_count": 6
+  },
+  "scripts/gen-brand-assets.mjs": {
+    "size": 4206,
+    "mtime_ns": 1788134996577286301,
+    "indexed_at_ns": 1792014799581663645,
+    "word_count": 509
+  },
+  "scripts/gen_sitemap.ts": {
+    "size": 819,
+    "mtime_ns": 1788136020313077428,
+    "indexed_at_ns": 1792014799582689119,
+    "word_count": 89
+  },
+  "src/assets/avatar.txt": {
+    "size": 631,
+    "mtime_ns": 1788059654014467792,
+    "indexed_at_ns": 1792014799583398507,
+    "word_count": 18
+  },
+  "src/components/FileExplorer.tsx": {
+    "size": 5990,
+    "mtime_ns": 1793127000436767350,
+    "indexed_at_ns": 1793127144023514148,
+    "word_count": 424
+  },
+  "src/components/Footer.astro": {
+    "size": 134,
+    "mtime_ns": 1793126992505291917,
+    "indexed_at_ns": 1793127144057485956,
+    "word_count": 16,
+    "hashes": { "src/components/footer.astro": "06274ef4d4150d6a8ef229e0163e6e8d6c0da60e24bef398bcaa072d52f8d7b8" }
+  },
+  "src/components/GitHubLink.astro": {
+    "size": 397,
+    "mtime_ns": 1788132654059150648,
+    "indexed_at_ns": 1792014799623576572,
+    "word_count": 35,
+    "hashes": { "src/components/githublink.astro": "46c414b9759e5dff304e8ebdb36ab76dbb01a6ff977146d3daf1ed8c00a10af7" }
+  },
+  "src/components/Home.astro": {
+    "size": 12035,
+    "mtime_ns": 1792971691216922153,
+    "indexed_at_ns": 1792971846345663519,
+    "word_count": 921,
+    "hashes": { "src/components/home.astro": "f7ce3b9d53e7e41b4ed306a43a4756db20fd5db1a6dc103dceae83b96b68c572" }
+  },
+  "src/components/Icon.astro": {
+    "size": 181,
+    "mtime_ns": 1788131232934720491,
+    "indexed_at_ns": 1792014799624420344,
+    "word_count": 23,
+    "hashes": { "src/components/icon.astro": "c8fa034b975ec8db445e2eafe4905241e07327fc6ea6a28e608c661e656972ed" }
+  },
+  "src/components/Navbar.astro": {
+    "size": 6044,
+    "mtime_ns": 1788137870715357843,
+    "indexed_at_ns": 1792014799625069899,
+    "word_count": 523,
+    "hashes": { "src/components/navbar.astro": "b459ebe2101f0474cca50ec9bdc3998d4c445afc423ccb82751c4a440ba61082" }
+  },
+  "src/components/Section.astro": {
+    "size": 143,
+    "mtime_ns": 1788131232934720491,
+    "indexed_at_ns": 1792014799625456520,
+    "word_count": 22,
+    "hashes": { "src/components/section.astro": "6fb1e2908981b8624ee6f01009a18931111b520f74b11a011ebdd10b3f2abaf6" }
+  },
+  "src/components/TerminalLogo.astro": {
+    "size": 1055,
+    "mtime_ns": 1788137382134537090,
+    "indexed_at_ns": 1792014799625945594,
+    "word_count": 49,
+    "hashes": {
+      "src/components/terminallogo.astro": "83f68d0998d50665660f6a8de96d9e5bccda188c6831d1184792410cd5d569b0"
+    }
+  },
+  "src/components/TerminalTitle.astro": {
+    "size": 1002,
+    "mtime_ns": 1793126996786548352,
+    "indexed_at_ns": 1793127144063865861,
+    "word_count": 78,
+    "hashes": {
+      "src/components/terminaltitle.astro": "eac66cb7269c56fe35bb3c21f4b22fb68ca72109b30ca0c52e48be2f605fe283"
+    }
+  },
+  "src/env.d.ts": {
+    "size": 187,
+    "mtime_ns": 1788131232934720491,
+    "indexed_at_ns": 1792014799590805796,
+    "word_count": 20
+  },
+  "src/i18n/en.ts": {
+    "size": 1171,
+    "mtime_ns": 1792971681912594148,
+    "indexed_at_ns": 1792971846314386731,
+    "word_count": 138
+  },
+  "src/i18n/es.ts": {
+    "size": 1220,
+    "mtime_ns": 1792971679403505769,
+    "indexed_at_ns": 1792971846314790612,
+    "word_count": 142
+  },
+  "src/i18n/types.ts": {
+    "size": 1427,
+    "mtime_ns": 1792971762125435165,
+    "indexed_at_ns": 1792971846315256514,
+    "word_count": 189
+  },
+  "src/layouts/BaseLayout.astro": {
+    "size": 4443,
+    "mtime_ns": 1793126988712065095,
+    "indexed_at_ns": 1793127144064239424,
+    "word_count": 396,
+    "hashes": { "src/layouts/baselayout.astro": "34cc39f5f8c25048a13a53757e28fa8a5516ae989108fcb318880ce9c4d0bd3e" }
+  },
+  "src/lib/github.ts": {
+    "size": 9950,
+    "mtime_ns": 1793129453888920174,
+    "indexed_at_ns": 1793129696871023976,
+    "word_count": 1241
+  },
+  "src/pages/404.astro": {
+    "size": 1362,
+    "mtime_ns": 1788135824951880177,
+    "indexed_at_ns": 1792014799627083151,
+    "word_count": 147,
+    "hashes": { "src/pages/404.astro": "ac58971c3f13125a012539922df8679d3e8415905961d0bff30679ecb9809aa7" }
+  },
+  "src/pages/api/contact.ts": {
+    "size": 5994,
+    "mtime_ns": 1788135930878936566,
+    "indexed_at_ns": 1792014799595050387,
+    "word_count": 710
+  },
+  "src/pages/contacto.astro": {
+    "size": 44,
+    "mtime_ns": 1788131232935720538,
+    "indexed_at_ns": 1792014799627390138,
+    "word_count": 4,
+    "hashes": { "src/pages/contacto.astro": "83d1a0354f48ba5e447a3e3d72f035adb460ca07dabd906b4b28caa22fa80d3c" }
+  },
+  "src/pages/en/index.astro": {
+    "size": 389,
+    "mtime_ns": 1792014528675700635,
+    "indexed_at_ns": 1792014799627814454,
+    "word_count": 48,
+    "hashes": { "src/pages/en/index.astro": "3a678480bcbb0b716a3386a431294f4e8678e9d32f022ba8a9452bde6b45499b" }
+  },
+  "src/pages/index.astro": {
+    "size": 380,
+    "mtime_ns": 1792014526211558604,
+    "indexed_at_ns": 1792014799628277354,
+    "word_count": 48,
+    "hashes": { "src/pages/index.astro": "2345c55d4f2e370a53ed69513116bd455eebbda7e8ce2b3b9cfc9aa9f2620fe6" }
+  },
+  "src/pages/inicio.astro": {
+    "size": 42,
+    "mtime_ns": 1788131232935720538,
+    "indexed_at_ns": 1792014799628661087,
+    "word_count": 4,
+    "hashes": { "src/pages/inicio.astro": "408c864ba32a94ef3fee248171db8656bf9104a2b0e345f1a5819fa3e0fea66e" }
+  },
+  "src/pages/mis-proyectos.astro": {
+    "size": 49,
+    "mtime_ns": 1788131232935720538,
+    "indexed_at_ns": 1792014799628979782,
+    "word_count": 4,
+    "hashes": { "src/pages/mis-proyectos.astro": "a96a0596f3bf121c9f47e5bdc59457c5ba91869d039b0e82a7ca6ecf88090c6d" }
+  },
+  "src/pages/sobre-mi.astro": {
+    "size": 44,
+    "mtime_ns": 1788131232942720868,
+    "indexed_at_ns": 1792014799629324838,
+    "word_count": 4,
+    "hashes": { "src/pages/sobre-mi.astro": "f8ed0ab17d6ae2dc301cada0d7c32e6db76f944b110c629a37dfdf90534e4bb4" }
+  },
+  "tailwind.config.js": {
+    "size": 671,
+    "mtime_ns": 1788131232942720868,
+    "indexed_at_ns": 1792014799600215833,
+    "word_count": 60
+  },
+  "tsconfig.eslint.json": {
+    "size": 238,
+    "mtime_ns": 1784213441433021420,
+    "indexed_at_ns": 1792014799629729259,
+    "word_count": 18,
+    "hashes": { "tsconfig.eslint.json": "44a0bc4b706ad51b4f6188bbe08483f04a1f12b08cfd903216aacfa68d272eaa" }
+  },
+  "tsconfig.json": {
+    "size": 491,
+    "mtime_ns": 1788135878653851629,
+    "indexed_at_ns": 1792014799630028949,
+    "word_count": 37,
+    "hashes": { "tsconfig.json": "dce0187aaeb75866e408430a68ab403e275083dee4e4972f4bd10b62ac4c0152" }
+  },
+  "vercel.json": {
+    "size": 1000,
+    "mtime_ns": 1784213441433021420,
+    "indexed_at_ns": 1792014799630331762,
+    "word_count": 86,
+    "hashes": { "vercel.json": "cf9816a1e45dbc6e5efe9371321fe7e7c3b992b3c73c27125a7f31e85f7649a4" }
+  },
+  "src/config/projects.ts": {
+    "size": 1352,
+    "mtime_ns": 1793124990715060368,
+    "indexed_at_ns": 1793125039020452315,
+    "word_count": 192
+  },
+  "src/components/AsciiTrail.astro": {
+    "size": 4464,
+    "mtime_ns": 1793126977364388716,
+    "indexed_at_ns": 1793127144057073832,
+    "word_count": 556,
+    "hashes": { "src/components/asciitrail.astro": "f4e5463079dce94d35bc887b9acaa8f74ab6fe1f74ecbd9d638c0fa950634731" }
+  },
+  "scripts/sync-projects.mjs": {
+    "size": 2909,
+    "mtime_ns": 1793129420698950741,
+    "indexed_at_ns": 1793129696863868971,
+    "word_count": 335
+  },
+  "src/data/github-repos.json": {
+    "size": 6452,
+    "mtime_ns": 1793129420726951916,
+    "indexed_at_ns": 1793129696899843494,
+    "word_count": 465,
+    "hashes": { "src/data/github-repos.json": "99f587dc92bff7554e9b27b8277ab80381b025c5172eb4df50f9c8e7adcc4203" }
+  }
+}

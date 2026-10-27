@@ -1,0 +1,53 @@
+---
+interface Props {
+  title: string
+  command: string
+  speed?: number
+}
+const { title = '', command = '', speed = 60 } = Astro.props
+const titlePadded = title.padEnd(9, ' ')
+---
+
+<div
+  class="terminal-title typewriter-container w-full max-w-4xl mx-auto rounded-none border border-dashed border-[var(--terminalGreen)] px-4 py-2.5 mb-12 font-mono flex items-center justify-between gap-3 bg-[var(--cardBg)]"
+  data-command={command}
+  data-speed={speed}
+>
+  <span class="font-bold uppercase tracking-wider text-[var(--textPrimary)] text-sm sm:text-lg whitespace-nowrap">
+    <span class="text-[var(--textMuted)]">[</span>
+    <span class="text-[var(--terminalGreen)] whitespace-pre">{titlePadded}</span>
+    <span class="text-[var(--textMuted)]">]</span>
+  </span>
+  <span aria-hidden="true" class="hidden sm:block flex-1 border-t border-dashed border-[var(--textMuted)] opacity-60"
+  ></span>
+  <span class="text-[var(--textMuted)] text-xs sm:text-sm whitespace-nowrap overflow-x-auto overflow-y-hidden">
+    <span class="text-[var(--terminalGreen)]">$</span>
+    <span class="typewriter-text"></span><span class="terminal-cursor" aria-hidden="true">▌</span>
+  </span>
+</div>
+
+<script>
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+  if (!reduceMotion) {
+    const containers = document.querySelectorAll<HTMLElement>('.typewriter-container')
+    for (const container of containers) {
+      const command = container.dataset.command || ''
+      const speed = Number(container.dataset.speed || 60)
+      const textEl = container.querySelector<HTMLElement>('.typewriter-text')
+      if (!textEl) continue
+
+      let i = 0
+      textEl.textContent = ''
+
+      const type = () => {
+        if (i <= command.length) {
+          textEl.textContent = command.slice(0, i)
+          i += 1
+          setTimeout(type, speed)
+        }
+      }
+      type()
+    }
+  }
+</script>

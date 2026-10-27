@@ -4,7 +4,7 @@ const titlePadded = title.padEnd(9, ' ')
 ---
 
 <div
-  class="w-full max-w-4xl mx-auto rounded-none border border-dashed border-[var(--terminalGreen)] px-4 py-2.5 mb-12 font-mono flex items-center justify-between gap-3 bg-[var(--cardBg)]"
+  class="terminal-title w-full max-w-4xl mx-auto rounded-none border border-dashed border-[var(--terminalGreen)] px-4 py-2.5 mb-12 font-mono flex items-center justify-between gap-3 bg-[var(--cardBg)]"
 >
   <span class="font-bold uppercase tracking-wider text-[var(--textPrimary)] text-sm sm:text-lg whitespace-nowrap">
     <span class="text-[var(--textMuted)]">[</span>
@@ -15,6 +15,6 @@ const titlePadded = title.padEnd(9, ' ')
   ></span>
   <span class="text-[var(--textMuted)] text-xs sm:text-sm whitespace-nowrap overflow-x-auto overflow-y-hidden">
     <span class="text-[var(--terminalGreen)]">$</span>
-    {command}
+    {command}<span class="terminal-cursor" aria-hidden="true">▌</span>
   </span>
 </div>

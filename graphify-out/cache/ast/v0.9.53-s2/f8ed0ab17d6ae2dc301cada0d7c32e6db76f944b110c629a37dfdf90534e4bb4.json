@@ -1,0 +1,14 @@
+{
+  "nodes": [
+    {
+      "id": "$graphify-root$_src_pages_sobre_mi_astro",
+      "label": "sobre-mi.astro",
+      "file_type": "code",
+      "source_file": "src/pages/sobre-mi.astro",
+      "source_location": "L1"
+    }
+  ],
+  "edges": [],
+  "raw_calls": [],
+  "parse_errors": { "first_error_line": 2, "multiline_error": false }
+}

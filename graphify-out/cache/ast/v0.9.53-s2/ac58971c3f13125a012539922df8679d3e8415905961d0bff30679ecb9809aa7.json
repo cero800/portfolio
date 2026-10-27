@@ -1,0 +1,118 @@
+{
+  "nodes": [
+    {
+      "id": "$graphify-root$_src_pages_404_astro",
+      "label": "404.astro",
+      "file_type": "code",
+      "source_file": "src/pages/404.astro",
+      "source_location": "L1"
+    },
+    {
+      "id": "$graphify-root$_src_pages_404_isen",
+      "label": "isEn",
+      "file_type": "code",
+      "source_file": "src/pages/404.astro",
+      "source_location": "L7"
+    }
+  ],
+  "edges": [
+    {
+      "source": "$graphify-root$_src_pages_404_astro",
+      "target": "$graphify-root$_src_components_terminaltitle_astro",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/404.astro",
+      "source_location": "L3",
+      "weight": 1.0,
+      "target_file": "$graphify-root$/src/components/TerminalTitle.astro"
+    },
+    {
+      "source": "$graphify-root$_src_pages_404_astro",
+      "target": "$graphify-root$_src_i18n_es_ts",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/404.astro",
+      "source_location": "L4",
+      "weight": 1.0,
+      "target_file": "$graphify-root$/src/i18n/es.ts"
+    },
+    {
+      "source": "$graphify-root$_src_pages_404_astro",
+      "target": "$graphify-root$_src_i18n_es_es",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/404.astro",
+      "source_location": "L4",
+      "weight": 1.0,
+      "target_file": "$graphify-root$/src/i18n/es.ts"
+    },
+    {
+      "source": "$graphify-root$_src_pages_404_astro",
+      "target": "$graphify-root$_src_i18n_en_ts",
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/404.astro",
+      "source_location": "L5",
+      "weight": 1.0,
+      "target_file": "$graphify-root$/src/i18n/en.ts"
+    },
+    {
+      "source": "$graphify-root$_src_pages_404_astro",
+      "target": "$graphify-root$_src_i18n_en_en",
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/404.astro",
+      "source_location": "L5",
+      "weight": 1.0,
+      "target_file": "$graphify-root$/src/i18n/en.ts"
+    },
+    {
+      "source": "$graphify-root$_src_pages_404_astro",
+      "target": "$graphify-root$_src_pages_404_isen",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/404.astro",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "$graphify-root$_src_pages_404_astro",
+      "target": "$graphify-root$_src_layouts_baselayout_astro",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/404.astro",
+      "target_file": "$graphify-root$/src/layouts/BaseLayout.astro"
+    },
+    {
+      "source": "$graphify-root$_src_pages_404_astro",
+      "target": "$graphify-root$_src_components_terminaltitle_astro",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/404.astro",
+      "target_file": "$graphify-root$/src/components/TerminalTitle.astro"
+    },
+    {
+      "source": "$graphify-root$_src_pages_404_astro",
+      "target": "$graphify-root$_src_i18n_es_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/404.astro",
+      "target_file": "$graphify-root$/src/i18n/es.ts"
+    },
+    {
+      "source": "$graphify-root$_src_pages_404_astro",
+      "target": "$graphify-root$_src_i18n_en_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/pages/404.astro",
+      "target_file": "$graphify-root$/src/i18n/en.ts"
+    }
+  ],
+  "raw_calls": [],
+  "parse_errors": { "first_error_line": 2, "multiline_error": true }
+}

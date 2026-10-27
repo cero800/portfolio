@@ -1,0 +1,10 @@
+---
+// Transiciones suaves entre navegación
+---
+
+<script>
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  if ('startViewTransition' in document && !reduceMotion) {
+    // Usamos CSS view-transition-name via estilos; dejamos el API disponible
+  }
+</script>
