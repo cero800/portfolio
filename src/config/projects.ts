@@ -27,6 +27,10 @@ export interface ProjectOverride {
   title?: string
   desc?: Partial<Record<Locale, string>>
   stack?: string[]
+  /** URL de demo/despliegue. Si se define, se usa como demo. */
+  demo?: string
+  /** URL del código fuente. Si se define, se usa como code. */
+  code?: string
 }
 
 export const PROJECT_OVERRIDES: Record<string, ProjectOverride> = {

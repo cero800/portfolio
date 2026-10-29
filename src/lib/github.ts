@@ -257,6 +257,9 @@ function toProject(repo: GitHubRepo, lang: Locale): ProjectInfo {
   const desc =
     override?.desc?.[lang]?.trim() || repo.description?.trim() || fallbackDescription(repo, prettyTopics, lang)
 
+  const demo = override?.demo?.trim() || homepage || repo.html_url
+  const code = override?.code?.trim() || repo.html_url
+
   return {
     name: `${repo.name}/`,
     perm: 'drwxr-xr-x',
@@ -264,8 +267,8 @@ function toProject(repo: GitHubRepo, lang: Locale): ProjectInfo {
     title: override?.title ?? prettifyName(repo.name),
     desc,
     stack,
-    demo: homepage ?? repo.html_url,
-    code: repo.html_url,
+    demo,
+    code,
     repo: repo.full_name,
     meta: {
       stars: repo.stargazers_count ?? 0,
